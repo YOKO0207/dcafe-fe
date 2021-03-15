@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Test from '../../components/groups/Test';
-import Text from '../../components/atoms/Text';
+import Test from '../../components/groups/cards/Test';
+import Text from '../../components/parts/Text';
 import Color from '../../variables/styles/Color'
-import Input from '../../components/atoms/Input';
+import Input from '../../components/parts/Input';
 
 function Top () {
     return (

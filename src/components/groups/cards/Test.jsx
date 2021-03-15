@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Delete from '../atoms/Button';
+import Delete from '../../parts/Button';
 
 
 function Test (props) {
