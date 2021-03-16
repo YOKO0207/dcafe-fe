@@ -1,9 +1,9 @@
 import React from 'react';
-import {FacebookCircle} from '@styled-icons/boxicons-logos/FacebookCircle';
 import styled from 'styled-components';
 import media from "styled-media-query";
+import {Menu} from '@styled-icons/boxicons-regular/Menu';
 
-function Facebook () {
+function Toggle () {
     return (
         <div>
             <ICON/>
@@ -12,15 +12,17 @@ function Facebook () {
     )
 }
 
-export default Facebook;
+export default Toggle;
 
-const ICON = styled(FacebookCircle)`
-  ${media.lessThan("medium")`
+const ICON = styled(Menu)`
+  ${media.between("medium", "large")`
     /* screen width is between 768px (medium) and 1170px (large) */
-    width:35px;
+    width:50px;
+  `}
+  ${media.greaterThan("large")`
+    /* screen width is greater than 1170px (large) */
+    
   `}
   color:white;
   width:40px;
 `
-
-

@@ -4,11 +4,15 @@ import Test from '../../components/groups/cards/Test';
 import Text from '../../components/parts/Text';
 import Color from '../../variables/styles/Color'
 import Input from '../../components/parts/Input';
+import Header from '../../components/groups/bars/Header'
+import Button from '../../components/parts/Button';
+
 
 function Top () {
     return (
         <div>
-           {/* <Test bgColor="green" name="delete"/> */}
+            <Header/>
+           {/* <Test bgColor="green" name="delete"/>
            <Text 
             text="this is test"
             font_weight="700"
@@ -21,10 +25,12 @@ function Top () {
            placeholder="入力欄"
            large_width="150px"
            large_height="31px"
-           border="black solid 1px"/>
+           border="black solid 1px"/> */}
+
         </div>
         
     )
 }
 
 export default Top;
+
