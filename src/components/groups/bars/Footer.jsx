@@ -7,13 +7,22 @@ import SNSIcons from '../cards/SNSIcons';
 import Modal from './Modal';
 
 
-function Header (props) {
+function Footer (props) {
     
     return (
         <div>
-            <HEADER>
-                <MODAL><Modal/></MODAL>
+            <FOOTER>
                 <LIST>
+                    <LOGO>
+                    <Link
+                    color="white"
+                    font-weight="bold"
+                    small_font_size="28px"
+                    middle_font_size="37px"
+                    large_font_size="60px"
+                    link="Dior"
+                    />
+                    </LOGO>
                     <LISTITEM>
                     <Link
                     color="white"
@@ -34,16 +43,6 @@ function Header (props) {
                     link="Order"
                     />
                     </LISTITEM>
-                    <LOGO>
-                    <Link
-                    color="white"
-                    font-weight="bold"
-                    small_font_size="28px"
-                    middle_font_size="37px"
-                    large_font_size="60px"
-                    link="Dior"
-                    />
-                    </LOGO>
                     <LISTITEM>
                     <Link
                     color="white"
@@ -66,26 +65,22 @@ function Header (props) {
                     </LISTITEM>
                     <SNSICONS><SNSIcons/></SNSICONS>
                 </LIST>
-            </HEADER>
+            </FOOTER>
             
         </div>
         
     )
 }
 
-export default Header;
+export default Footer;
 
-const HEADER = styled.div `
+const FOOTER = styled.div `
 background: ${Color.HEADER_BG};
 color:white;
 width:100%;
 display:flex;
 align-items:center;
 justify-content:center;
-position:fixed;
-top:0;
-left:0;
-right:0;
 z-index:2;
 ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
@@ -101,7 +96,7 @@ ${media.lessThan("medium")`
 
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
-    height:85px ;
+    height:75px ;
     font-size:;
   `}
 `;
@@ -118,7 +113,10 @@ align-items:center;
 `
 
 const LOGO = styled.div`
-margin:0 50px`
+margin:0 50px;
+position:absolute;
+left:0%;
+`
 const LISTITEM = styled.div`
 margin:0 60px;
 ${media.lessThan("medium")`
@@ -132,15 +130,7 @@ ${media.lessThan("medium")`
   `}
 `
 const SNSICONS = styled.div`
-${media.lessThan("medium")`
-    /* screen width is less than 768px (medium) */
-    display:none;
-  `}
 
-  ${media.between("medium", "large")`
-    /* screen width is between 768px (medium) and 1170px (large) */
-    display:none;
-  `}
   position:absolute;
   right:3%;
 `

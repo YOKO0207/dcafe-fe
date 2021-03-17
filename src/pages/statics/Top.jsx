@@ -6,12 +6,14 @@ import Color from '../../variables/styles/Color'
 import Input from '../../components/parts/Input';
 import Header from '../../components/groups/bars/Header'
 import Button from '../../components/parts/Button';
+import Footer from '../../components/groups/bars/Footer';
 
 
 function Top () {
     return (
         <div>
             <Header/>
+            <Footer/>
            {/* <Test bgColor="green" name="delete"/>
            <Text 
             text="this is test"
