@@ -9,6 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Toggle from '../../parts/icons/Toggle';
 import SNSIcons from '../cards/SNSIcons';
+import Link from '../../parts/Link';
 
 const useStyles = makeStyles({
   list: {
@@ -29,7 +30,10 @@ const useStyles = makeStyles({
   ul:{
     margin: '10px auto',
     width: '85%',
-    
+  },
+  li:{
+    margin:'19px',
+
   }
   
 });
@@ -59,9 +63,9 @@ export default function TemporaryDrawer() {
     >
       <List className={classes.ul}>
         {['Menu', 'Order', 'Access', 'Contact'].map((text) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
+          <div className={classes.li}>
+            <Link link={text} color="white" small_font_size="16px"/>
+          </div>
         ))}
       </List>
       <Divider className={classes.divibar}/>
