@@ -6,21 +6,31 @@ import Minus from '../../parts/icons/Minus';
 import Plus from '../../parts/icons/Plus';
 import Text from '../../parts/Text';
 
+
 function IncrementDecrementButton () {
 
     const [number, setNumber] = useState(0)
+
+    function handleIncrease (){
+        setNumber(number+1)
+    }
+    function handleDecrease (){
+        setNumber(number-1)
+    }
+
     return (
         <div>
             <CONTAINER>
-                <button onClick={()=>setNumber(number+1)}><Plus/></button>
+                <Button onClick={handleIncrease} button={<Plus/>}/>
                 <TEXT>
                     <Text 
                     text={number}
                     small_font_size="22px"
                     middle_font_size="25px"
-                    large_font_size="32px"/>
+                    large_font_size="32px"
+                    />
                 </TEXT>
-                {number > 0 ? <button onClick={()=>setNumber(number-1)}><Minus/></button> : <Minus/>}
+                {number > 0 ?<Button onClick={handleDecrease} button={<Minus/>}/> : <Minus/>}
             </CONTAINER>
         </div>
         

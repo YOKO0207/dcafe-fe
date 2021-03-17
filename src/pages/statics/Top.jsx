@@ -9,6 +9,7 @@ import Button from '../../components/parts/Button';
 import Footer from '../../components/groups/bars/Footer';
 import MenuBar from '../../components/groups/bars/MenuBar';
 import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
+import SquareNumber from '../../components/groups/cards/SquareNumber';
 
 
 
@@ -21,6 +22,7 @@ function Top () {
             
             <MenuBar/>
             <IncrementDecrementButton/>
+            <SquareNumber/>
            {/* <Test bgColor="green" name="delete"/>
            <Text 
             text="this is test"

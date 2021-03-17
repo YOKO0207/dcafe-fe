@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from "styled-media-query";
-import {MinusCircle} from '@styled-icons/boxicons-regular/MinusCircle'
+import {Minus} from '@styled-icons/evil/Minus'
 
-function Minus () {
+function MinusIcon () {
     return (
         <div>
             <ICON/>
@@ -12,9 +12,9 @@ function Minus () {
     )
 }
 
-export default Minus;
+export default MinusIcon;
 
-const ICON = styled(MinusCircle)`
+const ICON = styled(Minus)`
 ${media.lessThan("medium")`
 /* screen width is less than 768px (medium) */
 width:25px;
@@ -27,5 +27,4 @@ ${media.greaterThan("large")`
 /* screen width is greater than 1170px (large) */
 width:30px;
 `}
-color:#484848;
 `

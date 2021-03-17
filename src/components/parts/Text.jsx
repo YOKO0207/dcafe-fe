@@ -13,6 +13,7 @@ function Text (props) {
             small_font_size={props.small_font_size}
             middle_font_size={props.middle_font_size}
             large_font_size={props.large_font_size}
+            text_align={props.text_align}
             >
             {props.text}
             </TEXT>
@@ -41,4 +42,5 @@ ${media.lessThan("medium")`
 color: ${props => props.color || "black"};
 font-weight: ${props => props.font_weight || "regular"};
 font-family: ${props => props.font_family || "Baskerville,'Baskerville Old Face','Hoefler Text', Garamond,'New Roman',serif"};
+text-align:${props=> props.text_align || "center"}
 `;

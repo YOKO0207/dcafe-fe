@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from "styled-media-query";
-import {PlusCircle} from '@styled-icons/boxicons-regular/PlusCircle'
+import {Plus} from '@styled-icons/evil/Plus'
 
-function Plus () {
+function PlusIcon () {
     return (
         <div>
             <ICON/>
@@ -12,9 +12,9 @@ function Plus () {
     )
 }
 
-export default Plus;
+export default PlusIcon;
 
-const ICON = styled(PlusCircle)`
+const ICON = styled(Plus)`
 ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
     width:25px;
