@@ -7,13 +7,17 @@ import Input from '../../components/parts/Input';
 import Header from '../../components/groups/bars/Header'
 import Button from '../../components/parts/Button';
 import Footer from '../../components/groups/bars/Footer';
+import MenuBar from '../../components/groups/bars/MenuBar';
 
 
 function Top () {
     return (
         <div>
             <Header/>
+            samplesample
             <Footer/>
+            
+            <MenuBar/>
            {/* <Test bgColor="green" name="delete"/>
            <Text 
             text="this is test"
