@@ -8,6 +8,8 @@ import Header from '../../components/groups/bars/Header'
 import Button from '../../components/parts/Button';
 import Footer from '../../components/groups/bars/Footer';
 import MenuBar from '../../components/groups/bars/MenuBar';
+import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
+
 
 
 function Top () {
@@ -18,6 +20,7 @@ function Top () {
             <Footer/>
             
             <MenuBar/>
+            <IncrementDecrementButton/>
            {/* <Test bgColor="green" name="delete"/>
            <Text 
             text="this is test"
