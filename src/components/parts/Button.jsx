@@ -4,9 +4,12 @@ import media from "styled-media-query";
 
 
 function Button (props) {
-    
+
+  const button = [props.button]
+
     return (
         <div>
+          
             <BUTTON 
             bg_color={props.bg_color}
             small_width={props.small_width}
@@ -24,7 +27,7 @@ function Button (props) {
             // middle_height=""
             // large_height=""
             >
-              {props.button}
+            {button}
             </BUTTON>
         </div>
         
@@ -49,7 +52,10 @@ ${media.lessThan("medium")`
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
     width: ${props => props.large_width };
-    height: ${props => props.large_width};
+    height: ${props => props.large_height};
   `}
 background: ${props => props.bg_color};
+display:flex;
+align-items:center;
+justify-content:space-around;
 `;

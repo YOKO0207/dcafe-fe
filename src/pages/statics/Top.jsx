@@ -10,6 +10,7 @@ import Footer from '../../components/groups/bars/Footer';
 import MenuBar from '../../components/groups/bars/MenuBar';
 import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
 import SquareNumber from '../../components/groups/cards/SquareNumber';
+import TextAndNumberButton from '../../components/groups/buttons/TextAndNumberButton';
 
 
 
@@ -23,6 +24,7 @@ function Top () {
             <MenuBar/>
             <IncrementDecrementButton/>
             <SquareNumber/>
+            <TextAndNumberButton/>
            {/* <Test bgColor="green" name="delete"/>
            <Text 
             text="this is test"

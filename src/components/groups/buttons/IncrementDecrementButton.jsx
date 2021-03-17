@@ -17,6 +17,7 @@ function IncrementDecrementButton () {
     function handleDecrease (){
         setNumber(number-1)
     }
+    
 
     return (
         <div>

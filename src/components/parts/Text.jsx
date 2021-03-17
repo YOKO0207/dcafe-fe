@@ -42,5 +42,6 @@ ${media.lessThan("medium")`
 color: ${props => props.color || "black"};
 font-weight: ${props => props.font_weight || "regular"};
 font-family: ${props => props.font_family || "Baskerville,'Baskerville Old Face','Hoefler Text', Garamond,'New Roman',serif"};
-text-align:${props=> props.text_align || "center"}
+text-align:${props=> props.text_align || "center"};
+letter-spacing: 2px;
 `;

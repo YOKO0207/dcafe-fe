@@ -18,7 +18,7 @@ function Card (props) {
             small_height={props.small_height}
             middle_height={props.middle_height}
             large_height={props.large_height}
-            
+            padding={props.padding}
             // bg_color=""
             // border=""
             // box_shadow=""
@@ -42,23 +42,25 @@ export default Card;
 const CARD = styled.div `
 ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
-    width: ${props => props.small_width || "10px"};
-    height: ${props => props.small_height || "10px"};
+    width: ${props => props.small_width};
+    height: ${props => props.small_height };
   `}
 
   ${media.between("medium", "large")`
     /* screen width is between 768px (medium) and 1170px (large) */
-    width: ${props => props.middle_width || "10px"};
-    height: ${props => props.middle_height || "10px"};
+    width: ${props => props.middle_width };
+    height: ${props => props.middle_height};
   `}
 
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
-    width: ${props => props.large_width || "10px"};
-    height: ${props => props.large_width || "10px"};
+    width: ${props => props.large_width };
+    height: ${props => props.large_width };
   `}
 background: ${props => props.bg_color || "black"};
 border: ${props => props.border || "none"};
 box-shadow: ${props => props.box_shadow || "none"};
 border-radius:${props => props.border_radius|| "none"};
+padding: ${props => props.padding || "unset"};
+display:inline-block;
 `;
