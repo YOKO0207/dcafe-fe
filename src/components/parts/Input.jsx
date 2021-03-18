@@ -22,7 +22,7 @@ function Input (props) {
             small_font_size={props.small_font_size}
             middle_font_size={props.middle_font_size}
             large_font_size={props.large_font_size}
-
+            
             placeholder={props.placeholder}
             type={props.type || "text"}
             />
@@ -56,7 +56,7 @@ ${media.lessThan("medium")`
   `}
 background: ${props => props.bg_color || "white"};
 color: ${props => props.color || "black"};
-border: ${props => props.border || "none"};
+border: ${props => props.border || "1px solid black"};
 box-shadow: ${props => props.box_shadow || "none"};
 border-radius:${props => props.border_radius|| "none"};
 `;

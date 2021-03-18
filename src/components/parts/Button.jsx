@@ -18,6 +18,7 @@ function Button (props) {
             small_height={props.small_height}
             middle_height={props.middle_height}
             large_height={props.large_height}
+            padding={props.padding}
             onClick={props.onClick}
             // bg_color=""
             // small_width=""
@@ -55,6 +56,8 @@ ${media.lessThan("medium")`
     height: ${props => props.large_height};
   `}
 background: ${props => props.bg_color};
+padding:${props=>props.padding};
+
 display:flex;
 align-items:center;
 justify-content:space-around;

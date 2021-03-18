@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import media from "styled-media-query";
 import Button from '../../parts/Button';
 import Minus from '../../parts/icons/Minus';
 import Plus from '../../parts/icons/Plus';
 import Text from '../../parts/Text';
 
-
+// またprops渡すこと。ここでstateは持たない
 function IncrementDecrementButton () {
 
     const [number, setNumber] = useState(0)

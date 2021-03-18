@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import media from "styled-media-query";
 
-
 function Image (props) {
     
     return (
@@ -16,9 +15,20 @@ function Image (props) {
             small_height={props.small_height}
             middle_height={props.middle_height}
             large_height={props.large_height}
-            >
-            {props.image}
-            </IMAGE>
+            src={props.src}
+            alt={props.alt}
+
+            // box_shadow=""
+            // border_radius=""
+            // small_width=""
+            // middle_width=""
+            // large_width=""
+            // small_height=""
+            // middle_height=""
+            // large_height=""
+            // src={}
+            // alt=""
+            />
         </div>
         
     )

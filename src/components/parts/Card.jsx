@@ -4,11 +4,13 @@ import media from "styled-media-query";
 
 
 function Card (props) {
+
+  const card = [props.card]
     
     return (
         <div>
             <CARD 
-            bg_color={props.bg_color}
+            background={props.background}
             border={props.border}
             box_shadow={props.box_shadow}
             border_radius={props.border_radius}
@@ -19,6 +21,7 @@ function Card (props) {
             middle_height={props.middle_height}
             large_height={props.large_height}
             padding={props.padding}
+            display={props.display}
             // bg_color=""
             // border=""
             // box_shadow=""
@@ -29,6 +32,8 @@ function Card (props) {
             // small_height=""
             // middle_height=""
             // large_height=""
+            // padding=""
+            // display=""
             >
             {props.card}
             </CARD>
@@ -57,10 +62,10 @@ ${media.lessThan("medium")`
     width: ${props => props.large_width };
     height: ${props => props.large_width };
   `}
-background: ${props => props.bg_color || "black"};
+background: ${props => props.background};
 border: ${props => props.border || "none"};
 box-shadow: ${props => props.box_shadow || "none"};
 border-radius:${props => props.border_radius|| "none"};
 padding: ${props => props.padding || "unset"};
-display:inline-block;
+display:${props=>props.display||"inline-block"};
 `;

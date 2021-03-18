@@ -1,12 +1,15 @@
 import React from 'react';
-import Input from '../../parts/Input'
+import styled from 'styled-components';
+import media from "styled-media-query";
+import Textarea from '../../parts/Textarea'
 import Label from '../../parts/Label'
 
 
-function Input (props) {
+function Textarea (props) {
     return (
         <div>
-            <Input 
+
+            <Textarea 
             color={props.color}
             bg_color={props.bg_color}
             border={props.border}
@@ -38,4 +41,4 @@ function Input (props) {
     )
 }
 
-export default Input;
+export default Textarea;

@@ -1,17 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
-import media from "styled-media-query";
 import Text from '../../parts/Text';
-import Card from '../../parts/Card';
 import Button from '../../parts/Button';
 import SquareNumber from '../cards/SquareNumber';
 
-function TextAndNumberButton () {
+function TextAndNumberButton (props) {
 
     const listItems = [
-        <SquareNumber/>,
-        <Text color="white" large_font_size="27px" middle_font_size="22px" small_font_size="19px" text="Confirm order"/>,
-        <Text color="white" large_font_size="27px" middle_font_size="22px" small_font_size="19px" text="¥0000"/>,
+        <SquareNumber square_number={props.square_number}/>,
+        <Text color="white" large_font_size="27px" middle_font_size="22px" small_font_size="19px" text={props.text}/>,
+        <Text color="white" large_font_size="27px" middle_font_size="22px" small_font_size="19px" text={props.price}/>,
     ]
     return (
         <div>
@@ -24,7 +21,6 @@ function TextAndNumberButton () {
             middle_height="66px"
             large_height="80px"
             button= {listItems}
-            // {<Text color="white" large_font_size="27px" middle_font_size="22px" small_font_size="19px" text="Confirm order 000"/>}
             />
         </div>
         
