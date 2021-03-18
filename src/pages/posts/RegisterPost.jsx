@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import media from "styled-media-query";
 
-function Food () {
+function RegisterPost () {
     return (
         <div>
             
@@ -12,4 +12,4 @@ function Food () {
     )
 }
 
-export default Food;
+export default RegisterPost;
