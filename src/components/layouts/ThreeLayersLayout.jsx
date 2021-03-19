@@ -3,75 +3,72 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import media from "styled-media-query";
 
-function Layout (props) {
+function ThreeLayersLayout (props) {
+
+    
     return (
         <div>
             <TOP>{props.top}</TOP>
             <MIDDLE>
-                <MIDDLERIGHT>{props.middle_right}</MIDDLERIGHT>
-                <MIDDLEMIDDLE>{props.middle_middle}</MIDDLEMIDDLE>
-                <MIDDLELEFT>{props.middle_left}</MIDDLELEFT>
-                <MIDDLERIGHT>{props.middle_right}</MIDDLERIGHT>
+                {props.middle}
             </MIDDLE>
-
+            <BOTTOM>
+                {props.bottom}
+            </BOTTOM>
         </div>
         
     )
 }
 
-export default Layout;
+export default ThreeLayersLayout;
 
 const TOP = styled.div`
-width:100%;
-height:auto;
-`
-const MIDDLE = styled.div`
-margin: 0 auto;
-display:-webkit-box;
-display:-moz-box;
-display:-ms-flexbox;
-display:-webkit-flex;
-display:-moz-flex;
-display:flex;
--webkit-box-lines:multiple;
--moz-box-lines:multiple;
--webkit-flex-wrap:wrap;
--moz-flex-wrap:wrap;
--ms-flex-wrap:wrap;
-flex-wrap:wrap;
-justify-content:center;
+margin:0 auto;
 ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
     width:100%;
+    height:55px ;
   `}
   ${media.between("medium", "large")`
     /* screen width is between 768px (medium) and 1170px (large) */
-    width:90%;
+    width:85%;
+    height:70px ;
   `}
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
     width:80%;
+    height:85px ;
   `}
 `
-const MIDDLERIGHT = styled.div`
-margin:15px;
-    ${media.lessThan("medium")`
+const MIDDLE = styled.div`
+margin: 0 auto;
+${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
-    width:130px;
-    margin:5px;
+    width:90%;
   `}
-
   ${media.between("medium", "large")`
     /* screen width is between 768px (medium) and 1170px (large) */
-    width:200px;
+    width:75%;
   `}
-
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
-    width:230px;
+    width:70%;
   `}
 `
-const MIDDLELEFT = styled(MIDDLERIGHT)`
+const BOTTOM = styled.div`
+margin: 0 auto;
+${media.lessThan("medium")`
+    /* screen width is less than 768px (medium) */
+    width:90%;
+  `}
+  ${media.between("medium", "large")`
+    /* screen width is between 768px (medium) and 1170px (large) */
+    width:65%;
+  `}
+  ${media.greaterThan("large")`
+    /* screen width is greater than 1170px (large) */
+    width:50%;
+  `}
 `
-const MIDDLEMIDDLE = styled(MIDDLERIGHT)`
-`
+
+

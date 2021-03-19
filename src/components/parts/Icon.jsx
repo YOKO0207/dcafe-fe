@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import media from "styled-media-query";
 
-
+// 使わないかも
 function Icon (props) {
     
     return (
