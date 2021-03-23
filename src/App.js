@@ -1,6 +1,7 @@
 import '../src/styles/reset.css'
 import styled from 'styled-components';
 import media from "styled-media-query";
+import {Link} from 'react-router-dom';
 
 import { BrowserRouter,Switch,Redirect,Route} from 'react-router-dom'
 
@@ -30,7 +31,9 @@ function App() {
     <BODY>
       <div className="App">
         <Header/>
+        
         <BrowserRouter>
+        <Link to={"/"}>Top</Link>
           <Switch>
             <Route exact path={"/"} component={Top}/>
             {/* auth */}

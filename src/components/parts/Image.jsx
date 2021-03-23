@@ -52,8 +52,9 @@ ${media.lessThan("medium")`
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
     width: ${props => props.large_width || "10px"};
-    height: ${props => props.large_width || "10px"};
+    height: ${props => props.large_height || "10px"};
   `}
 box_shadow: ${props => props.box_shadow || "black"};
 border-radius:${props => props.border_radius|| "none"};
+
 `;

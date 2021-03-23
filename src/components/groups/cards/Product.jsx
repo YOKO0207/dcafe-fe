@@ -2,45 +2,35 @@ import React from 'react';
 import Card from '../../parts/Card';
 import Image from '../../parts/Image';
 import Text from '../../parts/Text';
+import styled from 'styled-components';
 
 function Product (props) {
 
     const listItems = [
         <Image 
         src={props.src}
-        box_shadow={props.image_box_shadow}
-        border_radius={props.image_border_radius}
+        alt={props.alt}
         small_width={props.image_small_width}
         middle_width={props.image_middle_width}
-        large_width={props.image_large_width}
-        small_height={props.image_small_height}
-        middle_height={props.image_middle_height}
-        large_height={props.image_large_height}
-        src={props.src}
-        alt={props.alt}
+        large_height="230px"
+        large_width="230px"
+        middle_width="200px"
+        middle_height="200px"
+        small_width="130px"
+        small_height="130px"
+        
         />,
-        <div>
+        <MARGIN/>,
+        <WRAPPER>
             <Text 
             text={props.text1} 
-            color={props.text1_color}
-            font_weight={props.text1_font_weight}
-            font_family={props.text1_font_family}
-            small_font_size={props.text1_small_font_size}
-            middle_font_size={props.text1_middle_font_size}
-            large_font_size={props.text1_large_font_size}
-            text_align={props.text1_text_align}
+            text_align="left"
+            word_breack="break-all"
             />
             <Text 
             text={props.text2} 
-            color={props.text2_color}
-            font_weight={props.text2_font_weight}
-            font_family={props.text2_font_family}
-            small_font_size={props.text2_small_font_size}
-            middle_font_size={props.text2_middle_font_size}
-            large_font_size={props.text2_large_font_size}
-            text_align={props.text2_text_align}
             />
-        </div>
+        </WRAPPER>
     ]
     return (
         <div>
@@ -64,3 +54,12 @@ function Product (props) {
 }
 
 export default Product;
+
+const WRAPPER=styled.div `
+display:flex;
+justify-content:space-between;
+`
+const MARGIN=styled.div `
+width:100%;
+height:5px;
+`;

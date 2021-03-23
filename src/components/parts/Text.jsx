@@ -14,6 +14,7 @@ function Text (props) {
             middle_font_size={props.middle_font_size}
             large_font_size={props.large_font_size}
             text_align={props.text_align}
+            word_breack={props.word_breack}
             
             // color=""
             // font_weight=""
@@ -35,7 +36,7 @@ export default Text;
 const TEXT = styled.p `
 ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
-    font-size:${props => props.small_font_size|| "18px"};
+    font-size:${props => props.small_font_size|| "15px"};
   `}
 
   ${media.between("medium", "large")`
@@ -45,11 +46,12 @@ ${media.lessThan("medium")`
   `}
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
-    font-size:${props => props.large_font_size || "18px"};
+    font-size:${props => props.large_font_size || "20px"};
   `}
 color: ${props => props.color || "black"};
 font-weight: ${props => props.font_weight || "regular"};
 font-family: ${props => props.font_family || "Baskerville,'Baskerville Old Face','Hoefler Text', Garamond,'New Roman',serif"};
 text-align:${props=> props.text_align || "center"};
 letter-spacing: 2px;
+word-break: ${props=> props.word_breack || "unset"};
 `;

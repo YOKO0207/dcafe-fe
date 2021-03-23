@@ -9,7 +9,7 @@ function Button (props) {
 
     return (
         <div>
-          
+          <CONTAINER isCenter={props.isCenter}>
             <BUTTON 
             bg_color={props.bg_color}
             small_width={props.small_width}
@@ -30,6 +30,7 @@ function Button (props) {
             >
             {button}
             </BUTTON>
+          </CONTAINER>  
         </div>
         
     )
@@ -57,8 +58,13 @@ ${media.lessThan("medium")`
   `}
 background: ${props => props.bg_color};
 padding:${props=>props.padding};
-
 display:flex;
 align-items:center;
 justify-content:space-around;
+
+`;
+const CONTAINER=styled.div `
+display:${props =>(props.isCenter ? "flex":"unset")};
+justify-content:${props =>(props.isCenter ? "center":"unset")};
+align-items:${props =>(props.isCenter ? "center":"unset")};
 `;

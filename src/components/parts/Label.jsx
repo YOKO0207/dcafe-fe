@@ -26,7 +26,7 @@ export default Label;
 const LABEL = styled.label `
 ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
-    font-size:${props => props.small_font_size|| "18px"};
+    font-size:${props => props.small_font_size|| "15px"};
   `}
 
   ${media.between("medium", "large")`
@@ -36,7 +36,7 @@ ${media.lessThan("medium")`
   `}
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
-    font-size:${props => props.large_font_size || "18px"};
+    font-size:${props => props.large_font_size || "20px"};
   `}
 color: ${props => props.color || "black"};
 font-weight: ${props => props.font_weight || "regular"};
