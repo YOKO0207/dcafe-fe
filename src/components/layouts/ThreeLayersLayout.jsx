@@ -48,11 +48,11 @@ ${media.lessThan("medium")`
   `}
   ${media.between("medium", "large")`
     /* screen width is between 768px (medium) and 1170px (large) */
-    width:75%;
+    width:65%;
   `}
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
-    width:70%;
+    width:50%;
   `}
 `
 const BOTTOM = styled.div`

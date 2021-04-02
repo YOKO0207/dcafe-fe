@@ -36,27 +36,28 @@ export default Textarea;
 const TEXTAREA = styled.textarea `
 ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
-    width: ${props => props.small_width || "10px"};
-    height: ${props => props.small_height || "10px"};
-    font-size: ${props => props.small_font_size || "10px"};
+    width: ${props => props.small_width || "100%"};
+    height: ${props => props.small_height || "100px"};
+    font-size: ${props => props.small_font_size || "15px"};
   `}
 
   ${media.between("medium", "large")`
     /* screen width is between 768px (medium) and 1170px (large) */
-    width: ${props => props.middle_width || "10px"};
-    height: ${props => props.middle_height || "10px"};
-    font-size: ${props => props.middle_font_size || "10px"};
+    width: ${props => props.middle_width || "100%"};
+    height: ${props => props.middle_height || "130px"};
+    font-size: ${props => props.middle_font_size || "18px"};
   `}
 
   ${media.greaterThan("large")`
     /* screen width is greater than 1170px (large) */
-    width: ${props => props.large_width || "10px"};
-    height: ${props => props.large_height || "10px"};
-    font-size: ${props => props.large_font_size || "10px"};
+    width: ${props => props.large_width || "100%"};
+    height: ${props => props.large_height || "130px"};
+    font-size: ${props => props.large_font_size || "20px"};
   `}
 background: ${props => props.bg_color || "white"};
 color: ${props => props.color || "black"};
-border: ${props => props.border || "none"};
+border: ${props => props.border || "1px solid black"};
 box-shadow: ${props => props.box_shadow || "none"};
 border-radius:${props => props.border_radius|| "none"};
+padding:5px;
 `;

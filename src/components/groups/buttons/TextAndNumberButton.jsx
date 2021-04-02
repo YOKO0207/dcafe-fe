@@ -2,11 +2,12 @@ import React from 'react';
 import Text from '../../parts/Text';
 import Button from '../../parts/Button';
 import SquareNumber from '../cards/SquareNumber';
+import styled from 'styled-components';
 
 function TextAndNumberButton (props) {
 
     const listItems = [
-        <SquareNumber square_number={props.square_number}/>,
+        <SQUARENUMBER display={props.display}><SquareNumber square_number={props.square_number}/></SQUARENUMBER>,
         <Text color="white" large_font_size="27px" middle_font_size="22px" small_font_size="19px" text={props.text}/>,
         <Text color="white" large_font_size="27px" middle_font_size="22px" small_font_size="19px" text={props.price}/>,
     ]
@@ -14,12 +15,13 @@ function TextAndNumberButton (props) {
         <div>
             <Button 
             bg_color="black"
-            small_width="300px"
+            small_width="unset"
             middle_width="350px"
-            large_width="400px"
+            large_width="380px"
             small_height="50px"
-            middle_height="66px"
-            large_height="80px"
+            middle_height="55px"
+            large_height="60px"
+            padding="15px"
             button= {listItems}
             />
         </div>
@@ -28,3 +30,9 @@ function TextAndNumberButton (props) {
 }
 
 export default TextAndNumberButton;
+
+const SQUARENUMBER = styled.div `
+display:${props => props.display||"block"};
+`
+
+
