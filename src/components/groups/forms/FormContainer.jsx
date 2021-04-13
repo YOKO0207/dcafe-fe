@@ -8,7 +8,7 @@ import Text from '../../parts/Text';
 function FormContainer (props) {
     return (
         <div>
-            <CONTAINER>
+            <CONTAINER isLarge={props.isLarge}>
                 <Text text={props.header} large_font_size="25px" middle_font_size="23px" small_font_size="20px"/>
                 <MARGIN/>
                 {props.formContainer}
@@ -21,7 +21,7 @@ function FormContainer (props) {
 export default FormContainer;
 
 const CONTAINER = styled.div `
-width:60%;
+width:${props => props.isLarge? "100%":"60%"};
 margin:0 auto;
 border:1px solid #CECECE;
 padding:30px;
@@ -33,12 +33,7 @@ ${media.lessThan("medium")`
 
   ${media.between("medium", "large")`
     /* screen width is between 768px (medium) and 1170px (large) */
-    width:80%;
-  `}
-
-  ${media.greaterThan("large")`
-    /* screen width is greater than 1170px (large) */
-    
+    width:${props => props.isLarge? "100%":"80%"};
   `}
 `
 const MARGIN=styled.div `

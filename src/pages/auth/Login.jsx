@@ -17,13 +17,11 @@ function Login () {
                 <FormContainer header="Log In" formContainer={
                 <div>
                     <InputGroup
-                        label="メールアドレス"
-                        placeholder="メールアドレスを入力"
+                        label="email"
                         />
                     <MARGIN/>
                     <InputGroup
-                    label="パスワード"
-                    placeholder="パスワードを入力"/>
+                    label="password"/>
                     <MARGIN/>
                     <TextButton text="Log In" isCenter={true} />
                 </div>

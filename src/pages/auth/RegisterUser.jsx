@@ -15,22 +15,18 @@ function RegisterUser () {
                 <FormContainer header="Sign Up" formContainer={
                 <div>
                     <InputGroup
-                        label="メールアドレス"
-                        placeholder="メールアドレスを入力"
+                        label="email"
                         />
                     <MARGIN/>
                     <InputGroup
-                        label="メールアドレス(確認)"
-                        placeholder="メールアドレス(確認)を入力"
+                        label="email(confirmation)"
                         />
                     <MARGIN/>
                     <InputGroup
-                    label="パスワード"
-                    placeholder="パスワードを入力"/>
+                    label="password"/>
                     <MARGIN/>
                     <InputGroup
-                    label="パスワード(確認)"
-                    placeholder="パスワード(確認)を入力"/>
+                    label="password(confirmation)"/>
                     <MARGIN/>
                     <TextButton text="Sign Up" isCenter={true} />
                 </div>

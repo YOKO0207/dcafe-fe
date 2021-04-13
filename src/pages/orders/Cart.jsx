@@ -11,6 +11,7 @@ import ProductWide from '../../components/groups/cards/ProductWide';
 import DeleteIcon from '../../components/parts/icons/DeleteIcon';
 import MenuBar from '../../components/groups/bars/MenuBar'
 import TextButton from '../../components/groups/buttons/TextButton';
+import TextareaGroup from '../../components/groups/forms/TextareaGroup';
 
 function Cart () {
     return (
@@ -27,13 +28,12 @@ function Cart () {
                         </CONTAINER>
                         <MARGIN_WRAPPER><DeleteIcon/></MARGIN_WRAPPER>
                     </CONTAINER>
+                    
                 </div>}
                 bottom={
                     <div>
                         <MARGIN/>
-                        <Label label="Add requset"/>
-                        <MARGIN_SMALL/>
-                        <Textarea/>
+                        <TextareaGroup label="Add request"/>
                         <MARGIN/>
                         <TextButton text="Confirm Order" isCenter={true}/>
                     </div>
