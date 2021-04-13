@@ -24,6 +24,7 @@ import Sorry from './pages/statics/Sorry';
 import Test from './pages/statics/Test';
 import Header from './components/groups/bars/Header';
 import Footer from './components/groups/bars/Footer';
+import Maintenance from './pages/statics/Maintenance';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
             <Route exact path={"/posts/edit_product"} component={EditProduct}/>
             <Route exact path={"/posts/register_product"} component={RegisterProduct}/>
             {/* statics */}
+            <Route exact path={"/statics/maintenance"} component={Maintenance}/>
             <Route exact path={"/statics/sorry"} component={Sorry}/>
             <Route exact path={"/statics/Test"} component={Test}/>
           </Switch>

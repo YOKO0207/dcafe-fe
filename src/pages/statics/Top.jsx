@@ -26,6 +26,7 @@ function Top () {
             <Link to={'/posts/edit_product'}>edit_product</Link><br/>
             <Link to={'/posts/register_product'}>register_product</Link><br/>
             {/* statics */}
+            <Link to={'/statics/maintenance'}>statics/maintenance</Link><br/>
             <Link to={'/statics/sorry'}>statics/sorry</Link><br/>
             <Link to={'/statics/Test'}>statics/Test</Link><br/>
         </div>

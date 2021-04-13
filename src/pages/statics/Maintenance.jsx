@@ -4,13 +4,12 @@ import styled from 'styled-components';
 import media from "styled-media-query";
 import ThreeLayersLayout from '../../components/layouts/ThreeLayersLayout';
 
-function Sorry () {
+function Maintenance () {
     return (
         <div>
             <ThreeLayersLayout middle={
                 <CONTAINER>
-                <HEADING>404 </HEADING>
-                <TEXT>Page Not Found, or something went wrong. Please try again. </TEXT>
+                <HEADING>Site under Maintenance</HEADING>
             </CONTAINER>
             }/>
             
@@ -19,7 +18,7 @@ function Sorry () {
     )
 }
 
-export default Sorry;
+export default Maintenance;
 
 const CONTAINER = styled.div `
 text-align:center;
