@@ -12,6 +12,8 @@ import IncrementDecrementButton from '../../components/groups/buttons/IncrementD
 import ProductWide from '../../components/groups/cards/ProductWide';
 import DeleteIcon from '../../components/parts/icons/DeleteIcon';
 import MenuBar from '../../components/groups/bars/MenuBar'
+import TextButton from '../../components/groups/buttons/TextButton';
+
 
 
 function Cart () {
@@ -31,6 +33,16 @@ function Cart () {
                         <MARGIN_WRAPPER><DeleteIcon/></MARGIN_WRAPPER>
                     </CONTAINER>
                 </div>}
+                bottom={
+                    <div>
+                        <MARGIN/>
+                        <Label label="Add requset"/>
+                        <MARGIN_SMALL/>
+                        <Textarea/>
+                        <MARGIN/>
+                        <TextButton text="Confirm Order" isCenter={true}/>
+                    </div>
+                }
             />
         </div>
     )
@@ -51,3 +63,7 @@ margin:0 20px;
 const MARGIN = styled.div `
 width:100%;
 height:30px;`
+
+const MARGIN_SMALL = styled.div `
+width:100%;
+height:10px;`
