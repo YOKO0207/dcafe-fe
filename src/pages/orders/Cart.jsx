@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import media from "styled-media-query";
 import ThreeLayersLayout from '../../components/layouts/ThreeLayersLayout';
-import Card from '../../components/parts/Card';
-import Text from '../../components/parts/Text';
 import Image from '../../images/sample.png';
 import Textarea from '../../components/parts/Textarea';
 import Label from '../../components/parts/Label';
@@ -14,12 +12,9 @@ import DeleteIcon from '../../components/parts/icons/DeleteIcon';
 import MenuBar from '../../components/groups/bars/MenuBar'
 import TextButton from '../../components/groups/buttons/TextButton';
 
-
-
 function Cart () {
     return (
         <div>
-        
             <ThreeLayersLayout
              top={<MenuBar/>}
              middle={

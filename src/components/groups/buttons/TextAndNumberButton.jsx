@@ -7,13 +7,14 @@ import styled from 'styled-components';
 function TextAndNumberButton (props) {
 
     const listItems = [
-        <SQUARENUMBER display={props.display}><SquareNumber square_number={props.square_number}/></SQUARENUMBER>,
+        <SQUARENUMBER display={props.display}><SquareNumber square_number={props.square_number} color="white" border="1px solid white"/></SQUARENUMBER>,
         <Text color="white" large_font_size="27px" middle_font_size="22px" small_font_size="19px" text={props.text}/>,
         <Text color="white" large_font_size="27px" middle_font_size="22px" small_font_size="19px" text={props.price}/>,
     ]
     return (
         <div>
             <Button 
+            isCenter={props.isCenter}
             bg_color="black"
             small_width="unset"
             middle_width="350px"

@@ -6,9 +6,9 @@ function SquareNumber (props) {
     return (
         <div>
             <Card 
-            border="1px solid white"
+            border={props.border}
             padding="5px 10px"
-            card={<Text color="white" large_font_size="25px" middle_font_size="22px" large_font_size="19px" text={props.square_number}/>}/>
+            card={<Text color={props.color} large_font_size="25px" middle_font_size="22px" large_font_size="19px" text={props.square_number}/>}/>
         </div>
         
     )

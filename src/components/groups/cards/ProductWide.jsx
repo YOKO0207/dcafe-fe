@@ -4,7 +4,7 @@ import Image from '../../parts/Image';
 import Text from '../../parts/Text';
 import styled from 'styled-components';
 
-function Product (props) {
+function ProductWide (props) {
 
     const listItems = [
         <Image 
@@ -85,7 +85,7 @@ function Product (props) {
     )
 }
 
-export default Product;
+export default ProductWide;
 
 const WRAPPER=styled.div `
 display:flex;
