@@ -1,12 +1,24 @@
 import React from 'react';
-import Input from '../../parts/Input'
+import styled from 'styled-components';
+import media from "styled-media-query";
+import Textarea from '../../parts/Textarea'
 import Label from '../../parts/Label'
 
 
-function Input (props) {
+function TextareaGroup (props) {
     return (
         <div>
-            <Input 
+
+            <Label
+            color={props.color}
+            font_weight={props.font_weight}
+            font_family={props.font_family}
+            small_font_size={props.small_font_size}
+            middle_font_size={props.middle_font_size}
+            large_font_size={props.large_font_size}
+            label={props.label}/>
+            <MARGIN/>
+            <Textarea 
             color={props.color}
             bg_color={props.bg_color}
             border={props.border}
@@ -24,18 +36,15 @@ function Input (props) {
             placeholder={props.placeholder}
             type={props.type || "text"}
             />
-            <Label
-            color={props.color}
-            font_weight={props.font_weight}
-            font_family={props.font_family}
-            small_font_size={props.small_font_size}
-            middle_font_size={props.middle_font_size}
-            large_font_size={props.large_font_size}
-            label={props.label}
-            />
+            
         </div>
         
     )
 }
 
-export default Input;
+export default TextareaGroup;
+
+const MARGIN = styled.div `
+width:100%;
+height:5px;
+`

@@ -6,6 +6,7 @@ function Link (props) {
 
     return (
         <div>
+          
             <LINK  
             color={props.color}
             font_weight={props.font_weight}

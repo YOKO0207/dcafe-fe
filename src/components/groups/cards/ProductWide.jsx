@@ -20,7 +20,6 @@ function ProductWide (props) {
         small_height="130px"
         
         />,
-        <MARGIN/>,
         <WRAPPER>
             <Text 
             text={props.text1} 
@@ -34,7 +33,40 @@ function ProductWide (props) {
     ]
     return (
         <div>
-            <Card card={listItems}
+            <Card small_width="90%"
+            middle_width="90%"
+            large_width="90%"
+            card={
+                <div>
+                    <WRAPPER>
+                    <Image 
+                    src={props.src}
+                    alt={props.alt}
+                    small_width={props.image_small_width}
+                    middle_width={props.image_middle_width}
+                    large_height="130px"
+                    large_width="130px"
+                    middle_width="100px"
+                    middle_height="100px"
+                    small_width="90px"
+                    small_height="90px"
+                    />
+                    <div>
+                        <TEXT>
+                        <Text 
+                        text={props.text1} 
+                        word_breack="break-all"
+                        />
+                        <BOTTOM_TEXT>
+                            <Text 
+                            text={props.text2} 
+                            />
+                        </BOTTOM_TEXT>
+                        </TEXT>
+                    </div>
+                    </WRAPPER>
+                </div>
+            }
             background={props.background}
             border={props.border}
             box_shadow={props.box_shadow}
@@ -58,8 +90,19 @@ export default ProductWide;
 const WRAPPER=styled.div `
 display:flex;
 justify-content:space-between;
+position:relative;
 `
 const MARGIN=styled.div `
 width:100%;
 height:5px;
 `;
+
+const BOTTOM_TEXT = styled.div `
+position:absolute;
+bottom:0;
+
+`
+
+const TEXT = styled.div `
+padding-left:10px;
+`

@@ -6,33 +6,41 @@ import TextButton from '../../components/groups/buttons/TextButton';
 import FormContainer from '../../components/groups/forms/FormContainer';
 import InputGroup from '../../components/groups/forms/InputGroup';
 import ThreeLayersLayout from '../../components/layouts/ThreeLayersLayout';
+import TextareaGroup from '../../components/groups/forms/TextareaGroup';
 
-
-
-function Login () {
+function RegisterPost () {
     return (
         <div>
             <ThreeLayersLayout
             middle={<div>
-                <FormContainer header="Log In" formContainer={
+                <FormContainer isLarge={true} header="Register Post" formContainer={
                 <div>
                     <InputGroup
-                        label="email"
+                        label="title"
+                        />
+                    <MARGIN/>
+                    <TextareaGroup
+                    label="Description"/>
+                    <MARGIN/>
+                    <InputGroup
+                        label="price"
                         />
                     <MARGIN/>
                     <InputGroup
-                    label="password"/>
+                        label="image"
+                        />
                     <MARGIN/>
-                    <TextButton text="Log In" isCenter={true} />
+                    <TextButton text="Register Post" isCenter={true} />
                 </div>
                 }/>
             </div>}/>
+            
         </div>
         
     )
 }
 
-export default Login;
+export default RegisterPost;
 
 const MARGIN=styled.div `
 width:100%;

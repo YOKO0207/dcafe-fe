@@ -6,14 +6,15 @@ function TextButton (props) {
     return (
         <div>
             <Button
+            isCenter={props.isCenter}
             bg_color="black"
-            padding="20px"
+            padding="10px"
             button=
             {<Text 
                 color="white"
                 small_font_size="15px"
                 middle_font_size="20px"
-                large_font_size="25px"
+                large_font_size="23px"
                 text={props.text}
             />}
             />

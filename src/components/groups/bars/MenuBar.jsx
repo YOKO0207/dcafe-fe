@@ -60,21 +60,13 @@ export default MenuBar;
 
 const MENUBAR = styled.div `
 color:black;
-width:75%;
-margin: 0 auto;
 display:flex;
 align-items:center;
 justify-content:space-between;
-position:fixed;
-top:13%;
-left:0;
-right:0;
-z-index:2;
 border-bottom:1px solid black;
 ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
     height:55px ;
-    width:100%;
     padding:0 8px;
   `}
 
@@ -98,7 +90,7 @@ const LISTITEM = styled.div`
 margin:0 40px;
 ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
-    margin:0 10px;
+    margin:0 4px;
   `}
 `
 
