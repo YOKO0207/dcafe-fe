@@ -49,7 +49,7 @@ function App() {
             {/* orders */}
             <Route exact path={"/orders/cart"} component={Cart}/>
             <Route exact path={"/orders/complete"} component={Complete}/>
-            <Route exact path={"/orders/menu_item"} component={MenuItem}/>
+            <Route exact path={"/orders/menu_item/:menuItemId"} component={MenuItem}/>
             {/* posts */}
             <Route exact path={"/posts/edit_post"} component={EditPost}/>
             <Route exact path={"/posts/register_post"} component={RegisterPost}/>

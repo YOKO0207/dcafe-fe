@@ -12,21 +12,50 @@ import Textarea from '../../components/parts/Textarea';
 import Label from '../../components/parts/Label';
 import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
 import TextAndNumberButton from '../../components/groups/buttons/TextAndNumberButton';
+//api
+import {fetchMenuItem} from '../../stores/apis/menuItem'
+//reducer
+import {
+  initialState,
+  menuItemActionTypes,
+  menuItemReducer
+} from '../../stores/reducers/menuItem';
 
+function MenuItem (props) {
 
-function MenuItem () {
-  
+  // useEffect(() => {
+  //   fetchMenuItem(props.match.params.menuItemId)
+  //   .then((data) =>
+  //     console.log(data)
+  //   )
+  // }, [])
+  const [state, dispatch] = useReducer(menuItemReducer, initialState);
+    useEffect(() => {
+        dispatch({ type: menuItemActionTypes.FETCHING });
+        fetchMenuItem(props.match.params.menuItemId)
+        .then((data) =>
+            dispatch({
+            type: menuItemActionTypes.FETCH_SUCCESS,
+            payload: {
+                menuItem: data
+            }
+            })
+        )
+        
+    }, [])
+    console.log(state.menuItem)
+
     return (
         <div>
             <ThreeLayersLayout top={<MenuBar/>} 
             middle={<div>
                 <MIDDLE_MARGIN/>
                 <CONTAINER>
-                    <Product text1="name" text2="price" src={Image}/>
+                    <Product text1={state.menuItem.menuName} text2={state.menuItem.price} src={Image}/>
                     <Card padding="0 10px"
                     card={<div>
-                    <Text text="title" large_font_size="30px" middle_font_size="25px" small_font_size="20px" text_align="left"/>
-                    <Text text="description"
+                    <Text text={state.menuItem.menuName} large_font_size="30px" middle_font_size="25px" small_font_size="20px" text_align="left"/>
+                    <Text text={state.menuItem.description}
                     text_align="left"/>
                     </div>}/>
                 </CONTAINER>

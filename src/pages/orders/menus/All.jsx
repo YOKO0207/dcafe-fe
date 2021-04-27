@@ -28,12 +28,15 @@ function All () {
             }
             })
         )
-        console.log(state.menuItemsList)
+        
     }, [])
+    console.log(state.menuItemsList)
 
     const menuItemList = state.menuItemsList.map((menuItem,key) =>
     <div>
-        <Product text1={menuItem.menuName} text2={menuItem.price} src={Image}/>
+        <Link to={'/orders/menu_item/'+menuItem.menuItemId}>
+            <Product text1={menuItem.menuName} text2={menuItem.price} src={Image}/>
+        </Link>
     </div>
     ) 
     return (
