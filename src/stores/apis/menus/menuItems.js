@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getMenuItems} from '../urls/index';
+import {getMenuItems} from '../../urls/index';
 
 export const fetchMenuItems = async () => {
     try {
@@ -9,5 +9,6 @@ export const fetchMenuItems = async () => {
         return console.error(e);
     }
 }
+
 
     

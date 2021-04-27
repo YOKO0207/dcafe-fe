@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getMenuItem} from '../urls/index';
+import {getMenuItem} from '../../urls/index';
 
 export const fetchMenuItem = async (menuItemId) => {
     try {

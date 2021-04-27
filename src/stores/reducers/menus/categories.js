@@ -1,26 +1,26 @@
-import { REQUEST_STATE } from '../constants/index';
+import { REQUEST_STATE } from '../../constants/index';
 
 export const initialState = {
     fetchState: REQUEST_STATE.INITIAL,
-    menuItemsList: [],
+    categoriesList: [],
 };
 
-export const menuItemsActionTypes = {
+export const categoriesActionTypes = {
     FETCHING: 'FETCHING',
     FETCH_SUCCESS: 'FETCH_SUCCESS'
 }
 
-export const menuItemsReducer = (state, action) => {
+export const categoriesReducer = (state, action) => {
     switch (action.type) {
-    case menuItemsActionTypes.FETCHING:
+    case categoriesActionTypes.FETCHING:
         return {
         ...state,
         fetchState: REQUEST_STATE.LOADING,
         };
-    case menuItemsActionTypes.FETCH_SUCCESS:
+    case categoriesActionTypes.FETCH_SUCCESS:
         return {
         fetchState: REQUEST_STATE.OK,
-        menuItemsList: action.payload.menuItems,
+        categoriesList: action.payload.categories,
         };
     default:
         throw new Error();

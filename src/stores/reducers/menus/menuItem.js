@@ -1,4 +1,4 @@
-import { REQUEST_STATE } from '../constants/index';
+import { REQUEST_STATE } from '../../constants/index';
 
 export const initialState = {
     fetchState: REQUEST_STATE.INITIAL,

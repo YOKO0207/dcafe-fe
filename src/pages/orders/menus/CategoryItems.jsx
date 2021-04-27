@@ -7,7 +7,7 @@ import ListLayout from '../../../components/layouts/ListLayout';
 import Product from '../../../components/groups/cards/Product'
 import Image from '../../../images/sample.png'
 //api
-import {fetchMenuItems} from '../../../stores/apis/menus/menuItems'
+import {fetchCategoryItems} from '../../../stores/apis/menus/categoryItems'
 //reducer
 import {
     initialState,
@@ -15,11 +15,11 @@ import {
     menuItemsReducer
 } from '../../../stores/reducers/menus/menuItems';
 
-function All () {
+function CategoryItems (props) {
     const [state, dispatch] = useReducer(menuItemsReducer, initialState);
     useEffect(() => {
         dispatch({ type: menuItemsActionTypes.FETCHING });
-        fetchMenuItems()
+        fetchCategoryItems(props.match.params.categoryId)
         .then((data) =>
             dispatch({
             type: menuItemsActionTypes.FETCH_SUCCESS,
@@ -29,7 +29,8 @@ function All () {
             })
         )
         
-    }, [])
+    }, [state.menuItemsList])
+
     console.log(state.menuItemsList)
 
     const menuItemList = state.menuItemsList.map((menuItem,key) =>
@@ -41,13 +42,15 @@ function All () {
     ) 
     return (
         <div>
-            <ListLayout
-            top={<MenuBar/>}
-            contents={menuItemList}
-            />
+            <div>
+                <ListLayout
+                top={<MenuBar/>}
+                contents={menuItemList}
+                />
+            </div>
         </div>
         
     )
 }
 
-export default All;
+export default CategoryItems;

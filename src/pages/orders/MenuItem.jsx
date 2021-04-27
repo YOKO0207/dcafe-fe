@@ -2,7 +2,7 @@ import React,{useState, useEffect, useReducer} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import media from "styled-media-query";
-import MenuBar from '../../components/groups/bars/MenuBar';
+import MenuBar from '../bars/MenuBar';
 import Product from '../../components/groups/cards/Product';
 import ThreeLayersLayout from '../../components/layouts/ThreeLayersLayout';
 import Card from '../../components/parts/Card';
@@ -13,13 +13,13 @@ import Label from '../../components/parts/Label';
 import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
 import TextAndNumberButton from '../../components/groups/buttons/TextAndNumberButton';
 //api
-import {fetchMenuItem} from '../../stores/apis/menuItem'
+import {fetchMenuItem} from '../../stores/apis/menus/menuItem'
 //reducer
 import {
   initialState,
   menuItemActionTypes,
   menuItemReducer
-} from '../../stores/reducers/menuItem';
+} from '../../stores/reducers/menus/menuItem';
 
 function MenuItem (props) {
 
