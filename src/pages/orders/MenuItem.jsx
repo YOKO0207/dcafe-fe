@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useReducer} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import media from "styled-media-query";
@@ -12,35 +12,21 @@ import Textarea from '../../components/parts/Textarea';
 import Label from '../../components/parts/Label';
 import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
 import TextAndNumberButton from '../../components/groups/buttons/TextAndNumberButton';
-import axios from 'axios';
+
 
 function MenuItem () {
-
-  const [item, setItem] = useState("")
   
-  useEffect(()=>{
-      axios.get("http://localhost:8080/dcafe/menuitem//getmenuitem/1")
-          .then(response => {
-              setItem(response.data)
-              console.log(response.data)
-          }).catch(error => {
-              console.log(error)
-          })
-  },[]
-  )
-
     return (
         <div>
-          
             <ThreeLayersLayout top={<MenuBar/>} 
             middle={<div>
                 <MIDDLE_MARGIN/>
                 <CONTAINER>
-                    <Product text1={item.menuName} text2={item.price} src={Image}/>
+                    <Product text1="name" text2="price" src={Image}/>
                     <Card padding="0 10px"
                     card={<div>
                     <Text text="title" large_font_size="30px" middle_font_size="25px" small_font_size="20px" text_align="left"/>
-                    <Text text={item.description}
+                    <Text text="description"
                     text_align="left"/>
                     </div>}/>
                 </CONTAINER>
