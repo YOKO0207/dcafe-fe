@@ -17,7 +17,7 @@ function Login () {
                 <FormContainer header="Log In" formContainer={
                 <div>
                     <InputGroup
-                        label="email"
+                        label="Shop Admin Id"
                         />
                     <MARGIN/>
                     <InputGroup

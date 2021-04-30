@@ -9,7 +9,7 @@ import Label from '../../components/parts/Label';
 import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
 import ProductWide from '../../components/groups/cards/ProductWide';
 import DeleteIcon from '../../components/parts/icons/DeleteIcon';
-import MenuBar from '../../components/groups/bars/MenuBar'
+import MenuBar from '../bars/MenuBar'
 import TextButton from '../../components/groups/buttons/TextButton';
 import TextareaGroup from '../../components/groups/forms/TextareaGroup';
 

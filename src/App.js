@@ -9,10 +9,7 @@ import Top from './pages/statics/Top';
 import Login from './pages/auth/Login';
 import RegisterUser from './pages/auth/RegisterUser';
 import All from './pages/orders/menus/All';
-import Beverage from './pages/orders/menus/Beverage';
-import Dessert from './pages/orders/menus/Dessert';
-import Food from './pages/orders/menus/Food';
-import Other from './pages/orders/menus/Other';
+import CategoryItems from './pages/orders/menus/CategoryItems';
 import Cart from './pages/orders/Cart';
 import MenuItem from './pages/orders/MenuItem';
 import Complete from './pages/orders/Complete';
@@ -42,14 +39,11 @@ function App() {
             <Route exact path={"/auth/register_user"} component={RegisterUser}/>
             {/* orders/menus */}
             <Route exact path={"/orders/menus/all"} component={All}/>
-            <Route exact path={"/orders/menus/beverage"} component={Beverage}/>
-            <Route exact path={"/orders/menus/dessert"} component={Dessert}/>
-            <Route exact path={"/orders/menus/food"} component={Food}/>
-            <Route exact path={"/orders/menus/other"} component={Other}/>
+            <Route exact path={"/orders/menus/:categoryId"} component={CategoryItems}/>
             {/* orders */}
             <Route exact path={"/orders/cart"} component={Cart}/>
             <Route exact path={"/orders/complete"} component={Complete}/>
-            <Route exact path={"/orders/menu_item"} component={MenuItem}/>
+            <Route exact path={"/orders/menu_item/:menuItemId"} component={MenuItem}/>
             {/* posts */}
             <Route exact path={"/posts/edit_post"} component={EditPost}/>
             <Route exact path={"/posts/register_post"} component={RegisterPost}/>

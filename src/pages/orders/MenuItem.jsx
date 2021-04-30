@@ -1,8 +1,8 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState, useEffect, useReducer} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import media from "styled-media-query";
-import MenuBar from '../../components/groups/bars/MenuBar';
+import MenuBar from '../bars/MenuBar';
 import Product from '../../components/groups/cards/Product';
 import ThreeLayersLayout from '../../components/layouts/ThreeLayersLayout';
 import Card from '../../components/parts/Card';
@@ -12,42 +12,55 @@ import Textarea from '../../components/parts/Textarea';
 import Label from '../../components/parts/Label';
 import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
 import TextAndNumberButton from '../../components/groups/buttons/TextAndNumberButton';
-import axios from 'axios';
+//api
+import {fetchMenuItem} from '../../stores/apis/menus/menuItem'
+//reducer
+import {
+  initialState,
+  menuItemActionTypes,
+  menuItemReducer
+} from '../../stores/reducers/menus/menuItem';
 
-function MenuItem () {
+function MenuItem (props) {
 
-  const [item, setItem] = useState("")
-  
-  useEffect(()=>{
-      axios.get("http://localhost:8080/dcafe/menuitem//getmenuitem/1")
-          .then(response => {
-              setItem(response.data)
-              console.log(response.data)
-          }).catch(error => {
-              console.log(error)
-          })
-  },[]
-  )
+  // useEffect(() => {
+  //   fetchMenuItem(props.match.params.menuItemId)
+  //   .then((data) =>
+  //     console.log(data)
+  //   )
+  // }, [])
+  const [state, dispatch] = useReducer(menuItemReducer, initialState);
+    useEffect(() => {
+        dispatch({ type: menuItemActionTypes.FETCHING });
+        fetchMenuItem(props.match.params.menuItemId)
+        .then((data) =>
+            dispatch({
+            type: menuItemActionTypes.FETCH_SUCCESS,
+            payload: {
+                menuItem: data
+            }
+            })
+        )
+        
+    }, [])
+    console.log(state.menuItem)
+
+    
 
     return (
         <div>
-          
             <ThreeLayersLayout top={<MenuBar/>} 
             middle={<div>
                 <MIDDLE_MARGIN/>
                 <CONTAINER>
-                    <Product text1={item.menuName} text2={item.price} src={Image}/>
+                    <Product text1={state.menuItem.menuName} text2={state.menuItem.price} src={Image}/>
                     <Card padding="0 10px"
                     card={<div>
-                    <Text text="title" large_font_size="30px" middle_font_size="25px" small_font_size="20px" text_align="left"/>
-                    <Text text={item.description}
+                    <Text text={state.menuItem.menuName} large_font_size="30px" middle_font_size="25px" small_font_size="20px" text_align="left"/>
+                    <Text text={state.menuItem.description}
                     text_align="left"/>
                     </div>}/>
                 </CONTAINER>
-                <MIDDLE_MARGIN/>
-                <Label label="Add special request"/>
-                <SMALL_MARGIN/>
-                <TEXTAREA><Textarea/></TEXTAREA>
                 <MIDDLE_MARGIN/>
                 <CONTAINER_BOTTOM>
                     <IncrementDecrementButton/>

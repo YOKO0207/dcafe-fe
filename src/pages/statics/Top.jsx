@@ -11,14 +11,9 @@ function Top () {
             <Link to={'/auth/register_user'}>register_user</Link><br/>
             {/* orders/menus */}
             <Link to={'/orders/menus/all'}>menus/all</Link><br/>
-            <Link to={'/orders/menus/beverage'}>menus/beverage</Link><br/>
-            <Link to={'/orders/menus/dessert'}>menus/dessert</Link><br/>
-            <Link to={'/orders/menus/food'}>menus/food</Link><br/>
-            <Link to={'/orders/menus/other'}>menus/other</Link><br/>
             {/* orders */}
             <Link to={'/orders/cart'}>orders/cart</Link><br/>
             <Link to={'/orders/complete'}>orders/complete</Link><br/>
-            <Link to={'/orders/menu_item'}>orders/menu_item</Link><br/>
             {/* posts */}
             <Link to={'/posts/edit_post'}>edit_post</Link><br/>
             <Link to={'/posts/register_post'}>register_post</Link><br/>

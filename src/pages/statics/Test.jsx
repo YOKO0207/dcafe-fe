@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from "styled-media-query";
-import MenuBar from '../../components/groups/bars/MenuBar';
+import MenuBar from '../bars/MenuBar';
 import ListLayout from '../../components/layouts/ListLayout';
 import ThreeLayersLayout from '../../components/layouts/ThreeLayersLayout';
 
