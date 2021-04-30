@@ -29,9 +29,8 @@ function CategoryItems (props) {
             })
         )
         
-    }, [state.menuItemsList])
+    }, [props.match.params.categoryId])
 
-    console.log(state.menuItemsList)
 
     const menuItemList = state.menuItemsList.map((menuItem,key) =>
     <div>

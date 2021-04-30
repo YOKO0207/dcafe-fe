@@ -30,7 +30,6 @@ function MenuBar (props) {
         )
         
     }, [])
-    console.log(state.categoriesList)
 
     const categoryList = state.categoriesList.map((category,key) =>
     <div>

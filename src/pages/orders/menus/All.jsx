@@ -30,7 +30,6 @@ function All () {
         )
         
     }, [])
-    console.log(state.menuItemsList)
 
     const menuItemList = state.menuItemsList.map((menuItem,key) =>
     <div>

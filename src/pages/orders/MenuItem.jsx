@@ -45,6 +45,8 @@ function MenuItem (props) {
     }, [])
     console.log(state.menuItem)
 
+    
+
     return (
         <div>
             <ThreeLayersLayout top={<MenuBar/>} 
@@ -59,10 +61,6 @@ function MenuItem (props) {
                     text_align="left"/>
                     </div>}/>
                 </CONTAINER>
-                <MIDDLE_MARGIN/>
-                <Label label="Add special request"/>
-                <SMALL_MARGIN/>
-                <TEXTAREA><Textarea/></TEXTAREA>
                 <MIDDLE_MARGIN/>
                 <CONTAINER_BOTTOM>
                     <IncrementDecrementButton/>
