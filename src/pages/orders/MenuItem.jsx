@@ -12,24 +12,25 @@ import Textarea from '../../components/parts/Textarea';
 import Label from '../../components/parts/Label';
 import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
 import TextAndNumberButton from '../../components/groups/buttons/TextAndNumberButton';
+import { useSelector, useDispatch } from 'react-redux';
+import { toast } from "react-toastify";
+
 //api
 import {fetchMenuItem} from '../../stores/apis/menus/menuItem'
+
 //reducer
 import {
   initialState,
   menuItemActionTypes,
   menuItemReducer
 } from '../../stores/reducers/menus/menuItem';
+import RadioButtonGroup from '../../components/groups/forms/RadioButtonGroup';
 
 function MenuItem (props) {
 
-  // useEffect(() => {
-  //   fetchMenuItem(props.match.params.menuItemId)
-  //   .then((data) =>
-  //     console.log(data)
-  //   )
-  // }, [])
+  const counter = useSelector(state => state.counter)
   const [state, dispatch] = useReducer(menuItemReducer, initialState);
+  
     useEffect(() => {
         dispatch({ type: menuItemActionTypes.FETCHING });
         fetchMenuItem(props.match.params.menuItemId)
@@ -43,9 +44,12 @@ function MenuItem (props) {
         )
         
     }, [])
-    console.log(state.menuItem)
-
-    
+    const handleSetOrderDetails = () => {
+      const menuItems = JSON.parse(localStorage.menuItems || '[]');
+      menuItems.push({menuItemId:state.menuItem.menuItemId, amount:counter});
+      localStorage.menuItems = JSON.stringify(menuItems);
+      toast("Items were added to cart successfully")
+    }
 
     return (
         <div>
@@ -61,10 +65,12 @@ function MenuItem (props) {
                     text_align="left"/>
                     </div>}/>
                 </CONTAINER>
+                <SMALL_MARGIN/>
+                <RadioButtonGroup children={[{value:"small",  name:"size"},{value:"middle",  name:"size"},{value:"grande",  name:"size"}]}/>
                 <MIDDLE_MARGIN/>
                 <CONTAINER_BOTTOM>
                     <IncrementDecrementButton/>
-                    <TextAndNumberButton text="Add 1 to order" price="400" display="none"/>
+                    <TextAndNumberButton text={"Add "+`${counter}`+" to cart"} price={"$"+`${state.menuItem.price*counter}`} display="none" onClick={handleSetOrderDetails}/>
                 </CONTAINER_BOTTOM>
                 </div>}/>
         </div>
