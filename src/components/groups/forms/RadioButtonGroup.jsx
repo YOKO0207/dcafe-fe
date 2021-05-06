@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from "styled-media-query";
+//import media from "styled-media-query";
+import { Field, reduxForm } from 'redux-form';
 import RadioButton from '../../parts/RadioButton';
 
 function RadioButtonGroup (props) {

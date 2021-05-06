@@ -12,8 +12,14 @@ import DeleteIcon from '../../components/parts/icons/DeleteIcon';
 import MenuBar from '../bars/MenuBar'
 import TextButton from '../../components/groups/buttons/TextButton';
 import TextareaGroup from '../../components/groups/forms/TextareaGroup';
+import getSavedItems from '../../constants/util/getSavedItems';
 
 function Cart () {
+    
+    useEffect(()=>{
+        getSavedItems()
+    },[])
+    
     return (
         <div>
             <ThreeLayersLayout
