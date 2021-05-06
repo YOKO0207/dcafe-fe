@@ -9,7 +9,7 @@ const getSavedItems = () => {
             }
         })
         getMenuItems.then((message) => { 
-            message.map(i=>console.log(i))
+            console.log(message)
         }).catch((message) => { 
             console.log(message)
         })

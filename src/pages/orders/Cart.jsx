@@ -13,13 +13,36 @@ import MenuBar from '../bars/MenuBar'
 import TextButton from '../../components/groups/buttons/TextButton';
 import TextareaGroup from '../../components/groups/forms/TextareaGroup';
 import getSavedItems from '../../constants/util/getSavedItems';
+import { useSelector, useDispatch } from 'react-redux';
+import {setSavedMenuItems} from '../../stores/actions/savedMenuItems';
 
 function Cart () {
+
+    //const [savedMenuItems, setSavedMenuItems] = useState([])
+    const savedMenuItems = useSelector(state => state.savedMenuItems)
+    const dispatch = useDispatch()
     
     useEffect(()=>{
-        getSavedItems()
+        const getMenuItems = new Promise((resolve, reject) => { 
+            let data = localStorage.getItem('menuItems') 
+            let menuItems = JSON.parse(data);
+            
+            if (menuItems) {
+                resolve(menuItems) 
+                } else {
+                reject('Failed') 
+                }
+            })
+            getMenuItems.then((message) => { 
+                //setSavedMenuItems(message)
+                //console.log(message)
+                dispatch(setSavedMenuItems({savedMenuItems:message}))
+            }).catch((message) => { 
+                console.log(message)
+            })
+        console.log(savedMenuItems)
     },[])
-    
+
     return (
         <div>
             <ThreeLayersLayout
