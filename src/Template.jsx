@@ -31,3 +31,25 @@ function X () {
 }
 
 export default X;
+
+// const getMenuItems = new Promise((resolve, reject) => { 
+        //     let data = localStorage.getItem('menuItems') 
+        //     let menuItems = JSON.parse(data);
+            
+        //     if (menuItems) {
+        //         resolve(menuItems) 
+        //         } else {
+        //         reject('Failed') 
+        //         }
+        //     })
+        //     getMenuItems.then((message) => { 
+        //         //setSavedMenuItems(message)
+        //         //console.log(message)
+        //         dispatch(setSavedMenuItems({savedMenuItems:message}))
+        //         // debugger
+        //     }).then(()=>{
+        //         console.log(savedMenuItems)
+        //     }).catch((message) => { 
+        //         console.log(message)
+                
+        //     })

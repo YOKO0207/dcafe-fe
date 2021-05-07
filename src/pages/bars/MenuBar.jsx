@@ -64,7 +64,9 @@ function MenuBar (props) {
                     </LISTITEM>
                     {categoryList}
                 </LIST>
-                <Cart/>
+                <Link to={'/orders/cart'}>
+                  <Cart/>
+                </Link>
             </MENUBAR>
             
         </div>

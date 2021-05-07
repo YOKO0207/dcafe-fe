@@ -3,35 +3,8 @@ import Card from '../../parts/Card';
 import Image from '../../parts/Image';
 import Text from '../../parts/Text';
 import styled from 'styled-components';
-//api
-import {fetchMenuItem} from '../../../stores/apis/menus/menuItem';
-//reducer
-import {
-    initialState,
-    menuItemActionTypes,
-    menuItemReducer
-  } from '../../../stores/reducers/menus/menuItem';
-import { useSelector, useDispatch } from 'react-redux';
-  
 
 function ProductWide (props) {
-    const [state, dispatch] = useReducer(menuItemReducer, initialState);
-    const counter = useSelector(state => state.counter)
-
-    useEffect(() => {
-        dispatch({ type: menuItemActionTypes.FETCHING });
-        fetchMenuItem(1)
-        .then((data) =>
-            dispatch({
-            type: menuItemActionTypes.FETCH_SUCCESS,
-            payload: {
-                menuItem: data
-            }
-            })
-        )
-        
-    }, [])
-
     const listItems = [
         <Image 
         src={props.src}
@@ -79,12 +52,12 @@ function ProductWide (props) {
                     <div>
                         <TEXT>
                         <Text 
-                        text={state.menuItem.menuName}
+                        text={props.text1} 
                         word_breack="break-all"
                         />
                         <BOTTOM_TEXT>
                             <Text 
-                            text={state.menuItem.price}
+                            text={props.text2} 
                             />
                         </BOTTOM_TEXT>
                         </TEXT>

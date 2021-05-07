@@ -28,7 +28,6 @@ import Maintenance from './pages/statics/Maintenance';
 
 function App() {
   return (
-    <Provider store={store}>
       <BODY>
         <div className="App">
           <Header/>
@@ -63,7 +62,6 @@ function App() {
           {/* <Footer/> */}
         </div>
       </BODY>
-    </Provider>
   );
 }
 

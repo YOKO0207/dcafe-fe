@@ -12,37 +12,54 @@ import DeleteIcon from '../../components/parts/icons/DeleteIcon';
 import MenuBar from '../bars/MenuBar'
 import TextButton from '../../components/groups/buttons/TextButton';
 import TextareaGroup from '../../components/groups/forms/TextareaGroup';
-import getSavedItems from '../../constants/util/getSavedItems';
 import { useSelector, useDispatch } from 'react-redux';
 import {setSavedMenuItems} from '../../stores/actions/savedMenuItems';
+import SquareNumber from '../../components/groups/cards/SquareNumber';
+import useSavedMenuItems from '../../constants/util/useSavedMenuItems'
 
 function Cart () {
 
-    //const [savedMenuItems, setSavedMenuItems] = useState([])
     const savedMenuItems = useSelector(state => state.savedMenuItems)
-    const dispatch = useDispatch()
+    useSavedMenuItems()
+    // const dispatch = useDispatch()
     
-    useEffect(()=>{
-        const getMenuItems = new Promise((resolve, reject) => { 
-            let data = localStorage.getItem('menuItems') 
-            let menuItems = JSON.parse(data);
-            
-            if (menuItems) {
-                resolve(menuItems) 
-                } else {
-                reject('Failed') 
-                }
-            })
-            getMenuItems.then((message) => { 
-                //setSavedMenuItems(message)
-                //console.log(message)
-                dispatch(setSavedMenuItems({savedMenuItems:message}))
-            }).catch((message) => { 
-                console.log(message)
-            })
-        console.log(savedMenuItems)
-    },[])
+    // const asyncLocalStorage = {
+    //     getItem: async function (key) {
+    //         await null;
+    //         return localStorage.getItem(key);
+    //     }
+    // };
+    
+    // useEffect(()=>{
+        // asyncLocalStorage.getItem('menuItems').then(function (value) {
+        //     let menuItems = JSON.parse(value);
+        //     return menuItems
+        // }).then(function(value){
+        //     dispatch(setSavedMenuItems(value))
+        // });
+        //useSavedItems()
+    // },[])
 
+    const menuItemList = savedMenuItems?savedMenuItems.state.map((menuItem,key) =>
+    <div>
+        {/* <CONTAINER>
+            <CONTAINER>
+                <ProductWide text1={menuItem.menuName} text2={menuItem.price} src={Image}/>
+            </CONTAINER>
+        </CONTAINER> */}
+        <CONTAINER>
+            <CONTAINER>
+                {/* TODO counter won't work change it to square number temporary*/}
+                {/* <MARGIN_WRAPPER><IncrementDecrementButton/></MARGIN_WRAPPER> */}
+                <MARGIN_WRAPPER><SquareNumber square_number={menuItem.amount} color="black" border="1px solid black"/></MARGIN_WRAPPER>
+                <ProductWide text1={menuItem.menuName} text2={menuItem.price} src={Image}/>
+            </CONTAINER>
+            <MARGIN_WRAPPER><DeleteIcon/></MARGIN_WRAPPER>
+        </CONTAINER>
+        <MARGIN/>
+    </div>):
+    <div>There is no items in cart corrently</div>
+    
     return (
         <div>
             <ThreeLayersLayout
@@ -50,14 +67,7 @@ function Cart () {
              middle={
                 <div>
                     <MARGIN/>
-                    <CONTAINER>
-                        <CONTAINER>
-                            <MARGIN_WRAPPER><IncrementDecrementButton/></MARGIN_WRAPPER>
-                            <ProductWide text1="Cafe latte" text2="500" src={Image}/>
-                        </CONTAINER>
-                        <MARGIN_WRAPPER><DeleteIcon/></MARGIN_WRAPPER>
-                    </CONTAINER>
-                    
+                    {menuItemList}
                 </div>}
                 bottom={
                     <div>

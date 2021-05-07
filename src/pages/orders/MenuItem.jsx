@@ -46,7 +46,7 @@ function MenuItem (props) {
     }, [])
     const handleSetOrderDetails = () => {
       const menuItems = JSON.parse(localStorage.menuItems || '[]');
-      menuItems.push({menuItemId:state.menuItem.menuItemId, amount:counter, size:"grande"});
+      menuItems.push({menuItemId:state.menuItem.menuItemId, amount:counter, size:"grande",menuName:state.menuItem.menuName,price:state.menuItem.price});
       localStorage.menuItems = JSON.stringify(menuItems);
       //localStorage.setItem(menuItems);
       toast("Items were added to cart successfully")
