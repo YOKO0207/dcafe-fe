@@ -42,15 +42,36 @@ function MenuItem (props) {
             }
             })
         )
-        
     }, [])
     const handleSetOrderDetails = () => {
       const menuItems = JSON.parse(localStorage.menuItems || '[]');
+      for (var i = menuItems.length - 1; i >= 0; i--) {
+        if (menuItems[i].menuItemId === state.menuItem.menuItemId) {
+            var result = window.confirm("There is a same item in cart, are you sure you want to overwrite?")
+            if (result == true){
+              menuItems.splice(i, 1);
+            }
+            if (result == false){
+              return null;
+            }
+        }
+      }
       menuItems.push({menuItemId:state.menuItem.menuItemId, amount:counter, size:"grande",menuName:state.menuItem.menuName,price:state.menuItem.price});
       localStorage.menuItems = JSON.stringify(menuItems);
-      //localStorage.setItem(menuItems);
       toast("Items were added to cart successfully")
     }
+
+  //   const handleDeleteMenuItem = (menuItemId) => {
+  //     const array = JSON.parse(localStorage.getItem("menuItems"));
+  //     for (var i = array.length - 1; i >= 0; i--) {
+  //             if (array[i].menuItemId === menuItemId) {
+  //             array.splice(i, 1);
+  //             }
+  //     }
+  //     localStorage.setItem("menuItems", JSON.stringify(array));
+  //     dispatch(setSavedMenuItems(array))
+  //     toast("Items were removed from cart successfully")
+  // }
 
     return (
         <div>

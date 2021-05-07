@@ -20,16 +20,9 @@ import { toast } from "react-toastify";
 
 function Cart () {
 
-    const savedMenuItems = useSelector(state => state.savedMenuItems)
     useSavedMenuItems()
+    const savedMenuItems = useSelector(state => state.savedMenuItems)
     const dispatch = useDispatch()
-
-    const asyncLocalStorage = {
-        getItem: async function (key) {
-            await null;
-            return localStorage.getItem(key);
-        }
-    };
 
     const handleDeleteMenuItem = (menuItemId) => {
         const array = JSON.parse(localStorage.getItem("menuItems"));
@@ -58,9 +51,6 @@ function Cart () {
             </CONTAINER>
             <MARGIN/>
         </div>)
-    
-    
-        
     
     return (
         <div>
