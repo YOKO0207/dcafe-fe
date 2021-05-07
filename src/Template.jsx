@@ -53,3 +53,9 @@ export default X;
         //         console.log(message)
                 
         //     })
+        // asyncLocalStorage.getItem('menuItems').then(function (value) {
+        //     let menuItems = JSON.parse(value);
+        //     return menuItems
+        // }).then(function(value){
+        //     dispatch(setSavedMenuItems(value))
+        // });

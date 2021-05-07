@@ -1,6 +1,6 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import {setSavedMenuItems} from '../../stores/actions/savedMenuItems';
+import { setSavedMenuItems } from '../../stores/actions/savedMenuItems';
 
 function useSavedMenuItems () {
     const dispatch = useDispatch()

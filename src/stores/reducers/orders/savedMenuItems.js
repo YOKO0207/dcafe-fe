@@ -5,7 +5,7 @@ const savedMenuItemsReducer = (state = "", action) => {
             state: action.savedMenuItems
         }
     default:
-        return null;
+        return state;
     }
     
 }

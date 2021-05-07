@@ -15,56 +15,58 @@ import TextareaGroup from '../../components/groups/forms/TextareaGroup';
 import { useSelector, useDispatch } from 'react-redux';
 import {setSavedMenuItems} from '../../stores/actions/savedMenuItems';
 import SquareNumber from '../../components/groups/cards/SquareNumber';
-import useSavedMenuItems from '../../constants/util/useSavedMenuItems'
+import useSavedMenuItems from '../../constants/util/useSavedMenuItems';
+import { toast } from "react-toastify";
 
 function Cart () {
 
     const savedMenuItems = useSelector(state => state.savedMenuItems)
     useSavedMenuItems()
-    // const dispatch = useDispatch()
-    
-    // const asyncLocalStorage = {
-    //     getItem: async function (key) {
-    //         await null;
-    //         return localStorage.getItem(key);
-    //     }
-    // };
-    
-    // useEffect(()=>{
-        // asyncLocalStorage.getItem('menuItems').then(function (value) {
-        //     let menuItems = JSON.parse(value);
-        //     return menuItems
-        // }).then(function(value){
-        //     dispatch(setSavedMenuItems(value))
-        // });
-        //useSavedItems()
-    // },[])
+    const dispatch = useDispatch()
 
-    const menuItemList = savedMenuItems?savedMenuItems.state.map((menuItem,key) =>
-    <div>
-        {/* <CONTAINER>
+    const asyncLocalStorage = {
+        getItem: async function (key) {
+            await null;
+            return localStorage.getItem(key);
+        }
+    };
+
+    const handleDeleteMenuItem = (menuItemId) => {
+        const array = JSON.parse(localStorage.getItem("menuItems"));
+        for (var i = array.length - 1; i >= 0; i--) {
+                if (array[i].menuItemId === menuItemId) {
+                array.splice(i, 1);
+                
+                }
+        }
+        localStorage.setItem("menuItems", JSON.stringify(array));
+        dispatch(setSavedMenuItems(array))
+        toast("Items were removed from cart successfully")
+    }
+
+    const menuItemList = !savedMenuItems || savedMenuItems.state.length === 0  ? <div>Corrently There is no items in cart </div>
+    :savedMenuItems.state.map((menuItem,key) =>
+        <div>
             <CONTAINER>
-                <ProductWide text1={menuItem.menuName} text2={menuItem.price} src={Image}/>
+                <CONTAINER>
+                    {/* TODO counter won't work change it to square number temporary*/}
+                    {/* <MARGIN_WRAPPER><IncrementDecrementButton/></MARGIN_WRAPPER> */}
+                    <MARGIN_WRAPPER><SquareNumber square_number={menuItem.amount} color="black" border="1px solid black"/></MARGIN_WRAPPER>
+                    <ProductWide text1={menuItem.menuName} text2={menuItem.price} src={Image}/>
+                </CONTAINER>
+                <DELETE onClick={()=>handleDeleteMenuItem(menuItem.menuItemId)}><DeleteIcon/></DELETE>
             </CONTAINER>
-        </CONTAINER> */}
-        <CONTAINER>
-            <CONTAINER>
-                {/* TODO counter won't work change it to square number temporary*/}
-                {/* <MARGIN_WRAPPER><IncrementDecrementButton/></MARGIN_WRAPPER> */}
-                <MARGIN_WRAPPER><SquareNumber square_number={menuItem.amount} color="black" border="1px solid black"/></MARGIN_WRAPPER>
-                <ProductWide text1={menuItem.menuName} text2={menuItem.price} src={Image}/>
-            </CONTAINER>
-            <MARGIN_WRAPPER><DeleteIcon/></MARGIN_WRAPPER>
-        </CONTAINER>
-        <MARGIN/>
-    </div>):
-    <div>There is no items in cart corrently</div>
+            <MARGIN/>
+        </div>)
+    
+    
+        
     
     return (
         <div>
             <ThreeLayersLayout
-             top={<MenuBar/>}
-             middle={
+                top={<MenuBar/>}
+                middle={
                 <div>
                     <MARGIN/>
                     {menuItemList}
@@ -101,3 +103,7 @@ height:30px;`
 const MARGIN_SMALL = styled.div `
 width:100%;
 height:10px;`
+
+const DELETE = styled(MARGIN_WRAPPER) `
+cursor:pointer;
+`
