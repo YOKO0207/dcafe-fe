@@ -1,25 +1,33 @@
 import React,{useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+// import media from "styled-media-query";
+// import Textarea from '../../components/parts/Textarea';
+// import Label from '../../components/parts/Label';
+// import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
+// import SquareNumber from '../../components/groups/cards/SquareNumber';
 import styled from 'styled-components';
-import media from "styled-media-query";
 import ThreeLayersLayout from '../../components/layouts/ThreeLayersLayout';
 import Image from '../../images/sample.png';
-import Textarea from '../../components/parts/Textarea';
-import Label from '../../components/parts/Label';
-import IncrementDecrementButton from '../../components/groups/buttons/IncrementDecrementButton';
 import ProductWide from '../../components/groups/cards/ProductWide';
 import DeleteIcon from '../../components/parts/icons/DeleteIcon';
 import MenuBar from '../bars/MenuBar'
 import TextButton from '../../components/groups/buttons/TextButton';
 import TextareaGroup from '../../components/groups/forms/TextareaGroup';
-import { useSelector, useDispatch } from 'react-redux';
-import {setSavedMenuItems} from '../../stores/actions/savedMenuItems';
-import SquareNumber from '../../components/groups/cards/SquareNumber';
-import useSavedMenuItems from '../../constants/util/useSavedMenuItems';
-import { toast } from "react-toastify";
+import InputGroup from '../../components/groups/forms/InputGroup';
 import Plus from '../../components/parts/icons/Plus';
 import Minus from '../../components/parts/icons/Minus';
 import Text from '../../components/parts/Text';
+import { useSelector, useDispatch } from 'react-redux';
+import {setSavedMenuItems} from '../../stores/actions/savedMenuItems';
+import useSavedMenuItems from '../../constants/util/useSavedMenuItems';
+import { toast } from "react-toastify";
+//input 
+import useForm from '../../stores/reducers/util/useForm';
+const initialStateForInput = {
+    comment: "",
+    firstName: "",
+    lastName: ""
+};
 
 function Cart () {
 
@@ -29,6 +37,8 @@ function Cart () {
 
     //counter
     const [counter, setCounter] = useState(1)
+    
+    const [formState, handleChange] = useForm(initialStateForInput);
 
     const handleDeleteMenuItem = (menuItemId) => {
         const array = JSON.parse(localStorage.getItem("menuItems"));
@@ -96,6 +106,8 @@ function Cart () {
             <MARGIN/>
         </div>)
     
+    console.log(formState.comment)
+    console.log(formState.name)
     return (
         <div>
             <ThreeLayersLayout
@@ -108,7 +120,25 @@ function Cart () {
                 bottom={
                     <div>
                         <MARGIN/>
-                        <TextareaGroup label="Add request"/>
+                        <TextareaGroup label="Add request"
+                        name="comment"
+                        value={formState.comment}
+                        onChange={handleChange}
+                        />
+                        <MARGIN/>
+                        <INPUT_WRAPPER>
+                            <InputGroup label="First Name"
+                            name="firstName"
+                            value={formState.firstName}
+                            onChange={handleChange}
+                            />
+                            <MARGIN_SMALL/>
+                            <InputGroup label="Last Name"
+                            name="lastName"
+                            value={formState.lastName}
+                            onChange={handleChange}
+                            />
+                        </INPUT_WRAPPER>
                         <MARGIN/>
                         <TextButton text="Confirm Order" isCenter={true}/>
                     </div>
@@ -148,3 +178,7 @@ margin:0 5px;`
 
 const POINTER = styled.div `
 cursor:pointer;`
+
+const INPUT_WRAPPER = styled.div `
+
+`
