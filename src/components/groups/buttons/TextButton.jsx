@@ -9,6 +9,7 @@ function TextButton (props) {
             isCenter={props.isCenter}
             bg_color="black"
             padding="10px"
+            onClick={props.onClick}
             button=
             {<Text 
                 color="white"

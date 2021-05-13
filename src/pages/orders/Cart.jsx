@@ -21,6 +21,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import {setSavedMenuItems} from '../../stores/actions/savedMenuItems';
 import useSavedMenuItems from '../../constants/util/useSavedMenuItems';
 import { toast } from "react-toastify";
+//api
+import {postOrder} from '../../stores/apis/orders/confirmOrder';
 //input 
 import useForm from '../../stores/reducers/util/useForm';
 const initialStateForInput = {
@@ -34,10 +36,7 @@ function Cart () {
     useSavedMenuItems()
     const savedMenuItems = useSelector(state => state.savedMenuItems)
     const dispatch = useDispatch()
-
-    //counter
     const [counter, setCounter] = useState(1)
-    
     const [formState, handleChange] = useForm(initialStateForInput);
 
     const handleDeleteMenuItem = (menuItemId) => {
@@ -59,7 +58,7 @@ function Cart () {
                 array.splice(i, 1);
                 }
         }
-        array.push({menuItemId:menuItem.menuItemId, amount:menuItem.amount+1, size:"grande",menuName:menuItem.menuName,price:menuItem.price});
+        array.push({menuItemId:menuItem.menuItemId, orderAmount:menuItem.orderAmount+1, size:"grande",menuName:menuItem.menuName,price:menuItem.price});
         localStorage.setItem("menuItems", JSON.stringify(array));
         dispatch(setSavedMenuItems(array))
         toast("Items were changed successfully")
@@ -71,10 +70,33 @@ function Cart () {
                 array.splice(i, 1);
                 }
         }
-        array.push({menuItemId:menuItem.menuItemId, amount:menuItem.amount-1, size:"grande",menuName:menuItem.menuName,price:menuItem.price});
+        array.push({menuItemId:menuItem.menuItemId, orderAmount:menuItem.orderAmount-1, size:"grande",menuName:menuItem.menuName,price:menuItem.price});
         localStorage.setItem("menuItems", JSON.stringify(array));
         dispatch(setSavedMenuItems(array))
         toast("Items were changed successfully")
+    }
+
+    function getTotalPrice () {
+        let totalPrice = 0;
+        const array = JSON.parse(localStorage.getItem("menuItems"));
+        for (var i= array.length -1; i >= 0; i--){
+            totalPrice+= array[i].price*array[i].orderAmount
+        }
+        return totalPrice;
+    }
+
+    const handleSubmit = () => {
+        const array = JSON.parse(localStorage.getItem("menuItems"));
+        const totalPrice = getTotalPrice();
+        let data = {
+            name:formState.firstName+' '+formState.lastName,
+            comment:formState.comment,
+            eatinTakeout:true,
+            orderDetails:array,
+            totalPrice:totalPrice
+        }
+        postOrder(data);
+        
     }
 
     // TODO it won't work from time to time
@@ -84,21 +106,18 @@ function Cart () {
         <div>
             <CONTAINER>
                 <CONTAINER>
-                    {/* TODO counter won't work. changed it to square number temporary. Now I works I don't know why*/}
-                    {/* <MARGIN_WRAPPER><IncrementDecrementButton/></MARGIN_WRAPPER> */}
                     <WRAPPER>
                         <POINTER onClick={()=>handleIncrement(menuItem)}><Plus/></POINTER>
                         <TEXT>
                             <Text 
-                            text={menuItem.amount}
+                            text={menuItem.orderAmount}
                             small_font_size="22px"
                             middle_font_size="25px"
                             large_font_size="32px"
                             />
                         </TEXT>
-                        {menuItem.amount>1 ? <POINTER onClick={()=>handleDecrement(menuItem)}><Minus/></POINTER>:<Minus/>}
+                        {menuItem.orderAmount>1 ? <POINTER onClick={()=>handleDecrement(menuItem)}><Minus/></POINTER>:<Minus/>}
                     </WRAPPER>
-                    {/* <MARGIN_WRAPPER><SquareNumber square_number={menuItem.amount} color="black" border="1px solid black"/></MARGIN_WRAPPER> */}
                     <ProductWide text1={menuItem.menuName} text2={menuItem.price} src={Image}/>
                 </CONTAINER>
                 <DELETE onClick={()=>handleDeleteMenuItem(menuItem.menuItemId)}><DeleteIcon/></DELETE>
@@ -106,8 +125,6 @@ function Cart () {
             <MARGIN/>
         </div>)
     
-    console.log(formState.comment)
-    console.log(formState.name)
     return (
         <div>
             <ThreeLayersLayout
@@ -140,7 +157,7 @@ function Cart () {
                             />
                         </INPUT_WRAPPER>
                         <MARGIN/>
-                        <TextButton text="Confirm Order" isCenter={true}/>
+                        <TextButton text="Confirm Order" isCenter={true} onClick={handleSubmit}/>
                     </div>
                 }
             />

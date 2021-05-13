@@ -56,7 +56,7 @@ function MenuItem (props) {
             }
         }
       }
-      menuItems.push({menuItemId:state.menuItem.menuItemId, amount:counter, size:"grande",menuName:state.menuItem.menuName,price:state.menuItem.price});
+      menuItems.push({menuItemId:state.menuItem.menuItemId, orderAmount:counter, size:"grande",menuName:state.menuItem.menuName,price:state.menuItem.price});
       localStorage.menuItems = JSON.stringify(menuItems);
       toast("Items were added to cart successfully")
     }
