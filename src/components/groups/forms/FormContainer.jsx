@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import Color from '../../../variables/styles/Color'
+import Color from '../../../constants/styles/Color'
 import Text from '../../parts/Text';
 
 function FormContainer (props) {

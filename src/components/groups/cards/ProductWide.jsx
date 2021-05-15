@@ -1,11 +1,10 @@
-import React from 'react';
+import React,{useState, useEffect, useReducer} from 'react';
 import Card from '../../parts/Card';
 import Image from '../../parts/Image';
 import Text from '../../parts/Text';
 import styled from 'styled-components';
 
 function ProductWide (props) {
-
     const listItems = [
         <Image 
         src={props.src}
@@ -18,7 +17,6 @@ function ProductWide (props) {
         middle_height="200px"
         small_width="130px"
         small_height="130px"
-        
         />,
         <WRAPPER>
             <Text 

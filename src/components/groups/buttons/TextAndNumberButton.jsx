@@ -3,8 +3,10 @@ import Text from '../../parts/Text';
 import Button from '../../parts/Button';
 import SquareNumber from '../cards/SquareNumber';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
 
 function TextAndNumberButton (props) {
+    const counter = useSelector(state => state.counter)
 
     const listItems = [
         <SQUARENUMBER display={props.display}><SquareNumber square_number={props.square_number} color="white" border="1px solid white"/></SQUARENUMBER>,
@@ -24,6 +26,7 @@ function TextAndNumberButton (props) {
             large_height="60px"
             padding="15px"
             button= {listItems}
+            onClick={props.onClick}
             />
         </div>
         

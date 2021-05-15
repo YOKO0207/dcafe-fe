@@ -35,6 +35,10 @@ function InputGroup (props) {
             large_font_size={props.large_font_size}
             placeholder={props.placeholder}
             type={props.type || "text"}
+
+            name={props.name}
+            value={props.value}
+            onChange={props.onChange}
             />
         </div>
         

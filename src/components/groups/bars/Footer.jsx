@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from "styled-media-query";
-import Color from "../../../variables/styles/Color"
+import Color from "../../../constants/styles/Color"
 import Link from '../../parts/Link';
 import SNSIcons from '../cards/SNSIcons';
 
