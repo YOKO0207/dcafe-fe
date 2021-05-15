@@ -8,6 +8,7 @@ export const getMenuItemsByCategory = (categoryId) =>
 export const getMenuItem = (menuItemId) =>
     `${AppUrl}/menuitem/getmenuitem/${menuItemId}`
 export const saveOrder = `${AppUrl}/orders/saveorder`
+export const sendEmail = `${AppUrl}/orders/sendEmail`
 export const getPosts = `${AppUrl}/posts/getposts`
 export const saveMenuItem = `${AppUrl}/menuitem/savemenuitem`
 export const savePosts = `${AppUrl}/posts/saveposts`

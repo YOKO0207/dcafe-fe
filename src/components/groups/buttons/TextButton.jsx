@@ -8,7 +8,7 @@ function TextButton (props) {
             <Button
             isCenter={props.isCenter}
             bg_color="black"
-            padding="10px"
+            padding="10px 30px"
             onClick={props.onClick}
             button=
             {<Text 
