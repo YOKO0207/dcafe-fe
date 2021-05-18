@@ -99,7 +99,6 @@ function Cart () {
         }
         const order = JSON.parse(localStorage.order || '[]');
         localStorage.order = JSON.stringify(data);
-        //postOrder(data);
         history.push("/orders/complete");
     }
 
@@ -148,20 +147,22 @@ function Cart () {
                         />
                         <MARGIN/>
                         <INPUT_WRAPPER>
-                            <InputGroup label="First Name"
+                            <InputGroup label="First Name(required)"
                             name="firstName"
                             value={formState.firstName}
                             onChange={handleChange}
                             />
                             <MARGIN_SMALL/>
-                            <InputGroup label="Last Name"
+                            <InputGroup label="Last Name(required)"
                             name="lastName"
                             value={formState.lastName}
                             onChange={handleChange}
                             />
                         </INPUT_WRAPPER>
                         <MARGIN/>
-                        <TextButton text="Confirm Order" isCenter={true} onClick={handleSubmit}/>
+                        {formState.lastName && formState.lastName?
+                        <TextButton text="Check order details" isCenter={true} onClick={handleSubmit}/>
+                        :<TextButton text="Check order details" isCenter={true} bgColor="gray" cursor="not-allowed"/>}
                     </div>
                 }
             />
