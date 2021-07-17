@@ -18,6 +18,7 @@ export const findShopAdmin = (shopAdminId) =>
     `${AppUrl}/shopadmin/findshopadmin/${shopAdminId}`
 export const findShopUser = (shopUserId) =>
     `${AppUrl}/shopuser/findshopuser/${shopUserId}`
+export const login = `${AppUrl}/shopuser/login`
 
 
 

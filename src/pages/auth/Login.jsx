@@ -6,24 +6,48 @@ import TextButton from '../../components/groups/buttons/TextButton';
 import FormContainer from '../../components/groups/forms/FormContainer';
 import InputGroup from '../../components/groups/forms/InputGroup';
 import ThreeLayersLayout from '../../components/layouts/ThreeLayersLayout';
-
-
+//api
+import {postLogin} from '../../stores/apis/auth/loginRequest';
+//input 
+import useForm from '../../stores/reducers/util/useForm';
+const initialStateForInput = {
+    shopUserId: "",
+    password: ""
+};
 
 function Login () {
+    const [formState, handleChange] = useForm(initialStateForInput);
+
+    const handleSubmit = () => {
+        let data = {
+            shopUserId:formState.shopUserId,
+            password:formState.password
+        }
+        postLogin(data);
+    }
+
     return (
         <div>
             <ThreeLayersLayout
             middle={<div>
+            
                 <FormContainer header="Log In" formContainer={
                 <div>
                     <InputGroup
-                        label="Shop Admin Id"
-                        />
+                        label="Shop User Id"
+                        name="shopUserId"
+                        value={formState.shopUserId}
+                        onChange={handleChange}
+                    />
                     <MARGIN/>
                     <InputGroup
-                    label="password"/>
+                        label="password"
+                        name="password"
+                        value={formState.password}
+                        onChange={handleChange}
+                    />
                     <MARGIN/>
-                    <TextButton text="Log In" isCenter={true} />
+                    <TextButton text="Log In" isCenter={true} onClick={handleSubmit}/>
                 </div>
                 }/>
             </div>}/>
