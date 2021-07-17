@@ -21,8 +21,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import {setSavedMenuItems} from '../../stores/actions/savedMenuItems';
 import useSavedMenuItems from '../../constants/util/useSavedMenuItems';
 import { toast } from "react-toastify";
+import {useHistory} from 'react-router-dom'
 //api
-import {postOrder} from '../../stores/apis/orders/confirmOrder';
+import {postOrder} from '../../stores/apis/orders/postOrder';
 //input 
 import useForm from '../../stores/reducers/util/useForm';
 const initialStateForInput = {
@@ -38,6 +39,7 @@ function Cart () {
     const dispatch = useDispatch()
     const [counter, setCounter] = useState(1)
     const [formState, handleChange] = useForm(initialStateForInput);
+    const history = useHistory()
 
     const handleDeleteMenuItem = (menuItemId) => {
         const array = JSON.parse(localStorage.getItem("menuItems"));
@@ -95,8 +97,9 @@ function Cart () {
             orderDetails:array,
             totalPrice:totalPrice
         }
-        postOrder(data);
-        
+        const order = JSON.parse(localStorage.order || '[]');
+        localStorage.order = JSON.stringify(data);
+        history.push("/orders/complete");
     }
 
     // TODO it won't work from time to time
@@ -144,20 +147,22 @@ function Cart () {
                         />
                         <MARGIN/>
                         <INPUT_WRAPPER>
-                            <InputGroup label="First Name"
+                            <InputGroup label="First Name(required)"
                             name="firstName"
                             value={formState.firstName}
                             onChange={handleChange}
                             />
                             <MARGIN_SMALL/>
-                            <InputGroup label="Last Name"
+                            <InputGroup label="Last Name(required)"
                             name="lastName"
                             value={formState.lastName}
                             onChange={handleChange}
                             />
                         </INPUT_WRAPPER>
                         <MARGIN/>
-                        <TextButton text="Confirm Order" isCenter={true} onClick={handleSubmit}/>
+                        {formState.lastName && formState.lastName?
+                        <TextButton text="Check order details" isCenter={true} onClick={handleSubmit}/>
+                        :<TextButton text="Check order details" isCenter={true} bgColor="gray" cursor="not-allowed"/>}
                     </div>
                 }
             />

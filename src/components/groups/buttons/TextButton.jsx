@@ -7,9 +7,10 @@ function TextButton (props) {
         <div>
             <Button
             isCenter={props.isCenter}
-            bg_color="black"
-            padding="10px"
+            bg_color={props.bgColor?props.bgColor:"black"}
+            padding="10px 30px"
             onClick={props.onClick}
+            cursor={props.cursor?props.cursor:"pointer"}
             button=
             {<Text 
                 color="white"

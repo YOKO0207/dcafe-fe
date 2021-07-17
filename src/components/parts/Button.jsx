@@ -20,6 +20,7 @@ function Button (props) {
             large_height={props.large_height}
             padding={props.padding}
             onClick={props.onClick}
+            cursor={props.cursor}
             // bg_color=""
             // small_width=""
             // middle_width=""
@@ -61,6 +62,7 @@ padding:${props=>props.padding};
 display:flex;
 align-items:center;
 justify-content:space-around;
+cursor: ${props => props.cursor?props.cursor:"pointer"};
 
 `;
 const CONTAINER=styled.div `

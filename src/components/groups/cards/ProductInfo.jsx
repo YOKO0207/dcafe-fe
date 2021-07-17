@@ -9,12 +9,12 @@ import IncrementDecrementButton from '../buttons/IncrementDecrementButton';
 import DeleteIcon from '../../parts/icons/DeleteIcon';
 
 
-function ProductInfo () {
+function ProductInfo (props) {
     return (
         <div>
             <CONTAINER>
-                    <MARGIN_WRAPPER><SquareNumber square_number="0" border="1px solid black" color="black"/></MARGIN_WRAPPER>
-                    <MARGIN_WRAPPER><ProductWide text1="Cafe latte" text2="500" src={Image}/></MARGIN_WRAPPER>
+                    <MARGIN_WRAPPER><SquareNumber square_number={props.number} border="1px solid black" color="black"/></MARGIN_WRAPPER>
+                    <MARGIN_WRAPPER><ProductWide text1={props.text1} text2={props.text2} src={Image}/></MARGIN_WRAPPER>
             </CONTAINER>
         </div>
         
