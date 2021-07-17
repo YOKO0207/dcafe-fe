@@ -41,7 +41,7 @@ function Header (props) {
                     small_font_size="28px"
                     middle_font_size="37px"
                     large_font_size="60px"
-                    link="Dior"
+                    link="Dcafe"
                     />
                     </LOGO>
                     <LISTITEM>
